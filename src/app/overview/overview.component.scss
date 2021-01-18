@@ -1,0 +1,47 @@
+@use "src/app/main-styles";
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .filter {
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 55px;
+      font-weight: bold;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      padding: 2px 4px;
+      background-color: rgba(white, 0.5);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .box {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    @include main-styles.box-background;
+
+    .row {
+      display: flex;
+
+      .row-item {
+        display: flex;
+        width: 80px;
+        justify-content: center;
+      }
+
+      .icon {
+        align-self: center;
+      }
+    }
+  }
+}

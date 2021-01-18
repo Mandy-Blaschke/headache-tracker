@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use "src/app/main-styles";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  background-image: radial-gradient(circle at 13% 47%, rgba(149,199,199, 0.17) 0%, rgba(149,199,199, 0.17) 25%,transparent 25%, transparent 100%),radial-gradient(circle at 28% 63%, rgba(159,207,202, 0.13) 0%, rgba(159,207,202, 0.13) 16%,transparent 16%, transparent 100%),radial-gradient(circle at 81% 56%, rgba(41,219,192, 0.18) 0%, rgba(41,219,192, 0.18) 12%,transparent 12%, transparent 100%),radial-gradient(circle at 26% 48%, rgba(55,186,179, 0.23) 0%, rgba(55,186,179, 0.23) 6%,transparent 6%, transparent 100%),radial-gradient(circle at 97% 17%, rgba(66,192,162, 0.19) 0%, rgba(66,192,162, 0.19) 56%,transparent 56%, transparent 100%),radial-gradient(circle at 50% 100%, rgba(62,162,112, 0.15) 0%, rgba(62,162,112, 0.15) 36%,transparent 36%, transparent 100%),radial-gradient(circle at 55% 52%, rgba(111,188,160, 0.03) 0%, rgba(111,188,160, 0.03) 6%,transparent 6%, transparent 100%),linear-gradient(90deg, rgba(42,255,204, 0.12),rgba(42,255,204, 0.12));
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: main-styles.$gray-dark;
+}
+
+body, input, select {
+  font-family: 'Manrope', sans-serif;
+}

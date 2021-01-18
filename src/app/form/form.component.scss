@@ -1,0 +1,125 @@
+@use "src/app/main-styles";
+
+.greeting {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+
+  .text {
+    text-align: center;
+  }
+
+  .emoji {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+
+    .hand {
+      animation: waggle linear infinite 420ms;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  @include main-styles.box-background;
+
+  label {
+    margin: 15px 0;
+
+    input, option, select {
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      padding: 2px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+
+    .container {
+      width: 25px;
+      height: 15px;
+      border-radius: 8px;
+      position: relative;
+      margin-left: 15px;
+
+      &.false {
+        background-color: rgba(main-styles.$gray-light, 0.3);
+      }
+
+      &.true {
+        background-color: rgba(main-styles.$cyan-light, 0.3);
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .circle {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: main-styles.$cyan-dark;
+
+        &.false {
+          top: 0;
+          left: 0;
+        }
+
+        &.true {
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  button {
+    font-size: 16px;
+    align-self: center;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    padding: 2px 7px;
+    color: whitesmoke;
+    text-shadow: 0 0 1px #565656;
+    background-color: main-styles.$cyan;
+    box-shadow: 0 0 3px #565656;
+    margin-top: 25px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: main-styles.$cyan-dark;
+      box-shadow: none;
+      transform: scale(0.98);
+    }
+  }
+}
+
+
+@keyframes waggle {
+  25% {
+    transform: rotate(-7deg);
+    transform-origin: bottom center;
+  }
+  75% {
+    transform: rotate(7deg);
+    transform-origin: bottom center;
+  }
+}
+
+
+

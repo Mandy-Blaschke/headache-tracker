@@ -1,0 +1,32 @@
+@use "../main-styles";
+
+main {
+  width: 100vw;
+
+  .row {
+    display: flex;
+    align-self: stretch;
+    justify-content: space-evenly;
+    padding: 15px;
+    background-color: rgba(white, 0.5);
+
+    a {
+      color: main-styles.$gray-dark;
+      text-decoration: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.active {
+        color: main-styles.$cyan-light;
+        text-decoration: underline;
+      }
+
+      h3 {
+        margin: 0 15px;
+      }
+    }
+  }
+}
+

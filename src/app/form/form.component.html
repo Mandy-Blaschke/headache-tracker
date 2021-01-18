@@ -1,0 +1,127 @@
+<div class="greeting">
+  <h2 class="text">Hallo, <br> wie fühlst Du Dich? </h2>
+  <h1 class="emoji"><span class="hand">✋</span>🙂</h1>
+</div>
+
+<div class="form">
+
+  <label>
+    Datum:
+    <input type="date" [(ngModel)]="date">
+  </label>
+
+  <label>
+    Uhrzeit:
+    <input type="time" [(ngModel)]="time">
+  </label>
+
+  <div class="row">
+    <p>
+      Hast Du Kopfschmerzen?
+    </p>
+
+    <div class="container"
+         (click)="headache = !headache"
+         [class.true]="headache"
+         [class.false]="!headache"
+    >
+      <div class="circle"
+           [class.true]="headache"
+           [class.false]="!headache"
+      >
+      </div>
+    </div>
+  </div>
+
+  <label *ngIf="headache">
+    Wie stark sind die Kopfschmerzen?
+    <select [(ngModel)]="intensity">
+      <option value="">--Bitte wählen--</option>
+      <option value="strongIntensity">Stark</option>
+      <option value="middleIntensity">Mittel</option>
+      <option value="weakIntensity">Schwach</option>
+    </select>
+  </label>
+
+  <div class="row" *ngIf="headache">
+    <p>
+      Hast Du eine Tablette genommen?
+    </p>
+    <div class="container"
+         (click)="pill = !pill"
+         [class.true]="pill"
+         [class.false]="!pill"
+    >
+      <div class="circle"
+           [class.true]="pill"
+           [class.false]="!pill"
+      >
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <p>
+      Hast Du ausreichend getrunken?
+    </p>
+    <div class="container"
+         (click)="water = !water"
+         [class.true]="water"
+         [class.false]="!water"
+    >
+      <div class="circle"
+           [class.true]="water"
+           [class.false]="!water"
+      >
+      </div>
+    </div>
+  </div>
+
+  <label>
+    Wie ist Deine Stimmung?
+    <select [(ngModel)]="mood">
+      <option value="">--Bitte wählen--</option>
+      <option value="well">Gut</option>
+      <option value="bad">Schlecht</option>
+      <option value="stressed">Gestresst</option>
+      <option value="relaxed">Entspannt</option>
+      <option value="tired">Müde</option>
+      <option value="fresh">Wach</option>
+    </select>
+  </label>
+
+  <label>
+    Wie ist das Wetter?
+    <select [(ngModel)]="weather">
+      <option value="">--Bitte wählen--</option>
+      <option value="sunny">Sonnig</option>
+      <option value="cloudy">Bewölkt</option>
+      <option value="rainfall">Regen / Schnee</option>
+      <option value="thunderstorm">Gewitter</option>
+      <option value="stormy">Stürmisch</option>
+      <option value="foggy">Neblig</option>
+    </select>
+  </label>
+
+  <div class="row">
+    <p>
+      Bist Du krank?
+    </p>
+    <div class="container"
+         (click)="illness = !illness"
+         [class.true]="illness"
+         [class.false]="!illness"
+    >
+      <div class="circle"
+           [class.true]="illness"
+           [class.false]="!illness"
+      >
+      </div>
+    </div>
+  </div>
+
+  <button (click)="saveEntry()">Speichern</button>
+
+</div>
+

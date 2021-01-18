@@ -1,0 +1,12 @@
+$gray-dark: #3e3e3e;
+$gray-light: #989898;
+$cyan: #119b9f;
+$cyan-light: #15ba99;
+$cyan-dark: #127577;
+
+@mixin box-background {
+  margin: 15px;
+  padding: 15px;
+  background-color: rgba(white, 0.5);
+  border-radius: 8px;
+}
