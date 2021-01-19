@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Entry} from '../interfaces';
 import {MainService} from '../main.service';
 import {formatDateStringForView} from '../utils';
@@ -16,7 +16,7 @@ export class EntryComponent implements OnInit {
   entries: Entry[] = [];
   allEntries: Entry[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute, public service: MainService) {
+  constructor(private activatedRoute: ActivatedRoute, public service: MainService, private router: Router) {
   }
 
   async ngOnInit(): Promise<void> {
@@ -28,5 +28,10 @@ export class EntryComponent implements OnInit {
 
   findActiveDate(): void {
     this.entries = this.allEntries.filter((entry: Entry) => entry.date === this.activeDate);
+  }
+
+  async deleteEntry(entry: Entry): Promise<void> {
+    await this.service.deleteEntry(entry);
+    await this.router.navigate(['/uebersicht']);
   }
 }

@@ -32,9 +32,21 @@ export class EditComponent implements OnInit {
     this.entryToEdit = this.allEntries.find((entry) => entry.time === this.entryToEditTime);
   }
 
-  updateEntry(): void {
-    console.log(this.entryToEdit);
-    // TODO
+  async updateEntry(): Promise<void> {
+    const editedEntry: Entry = {
+      date: this.entryToEdit.date,
+      time: this.entryToEdit.time,
+      headache: this.entryToEdit.headache,
+      intensity: this.entryToEdit.intensity,
+      pill: this.entryToEdit.pill,
+      mood: this.entryToEdit.mood,
+      weather: this.entryToEdit.mood,
+      water: this.entryToEdit.water,
+      illness: this.entryToEdit.illness,
+      id: this.entryToEdit.id,
+    };
+    await this.service.editEntry(editedEntry);
+    await this.router.navigate(['/uebersicht']);
   }
 
   async cancel(): Promise<void> {

@@ -34,7 +34,10 @@
         </div>
       </div>
 
-      <div class="row-item icon glass" [routerLink]="'/eintrag/' + date.stringDate">🔍</div>
+      <div class="row-item icon glass" [routerLink]="'/eintrag/' + date.stringDate">
+        🔍
+        <span class="number-of-entries">{{date.entries.length}}</span>
+      </div>
 
     </div>
 

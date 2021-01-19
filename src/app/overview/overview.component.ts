@@ -50,7 +50,6 @@ export class OverviewComponent implements OnInit {
     }
   }
 
-
   getHeadAcheLevel(list: Entry[]): number {
     let result = 0;
 

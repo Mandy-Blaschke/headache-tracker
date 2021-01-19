@@ -1,5 +1,9 @@
 <div class="greeting">
-  <h2 class="text">Hallo, <br> wie fühlst Du Dich? </h2>
+  <h2 class="text">
+    Hallo {{service.pseudonym}},
+    <br>
+    wie fühlst Du Dich?
+  </h2>
   <h1 class="emoji"><span class="hand">✋</span>🙂</h1>
 </div>
 
@@ -122,7 +126,7 @@
   </div>
 
   <div class="button-box">
-    <button (click)="saveEntry()">Speichern</button>
+    <app-button (click)="saveEntry()">Speichern</app-button>
   </div>
 
 </div>

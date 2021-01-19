@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Entry} from './interfaces';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,101 +8,33 @@ import {Entry} from './interfaces';
 // @ts-ignore
 export class MainService {
 
-  constructor() {
+  pseudonym = 'Mandy';
+
+  constructor(private http: HttpClient) {
   }
 
   async save(entry: Entry): Promise<void> {
-    // TODO
-    console.log('save');
+    await this.http.post('https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-' + this.pseudonym, entry).toPromise();
   }
 
   async editEntry(entry: Entry): Promise<void> {
-    // TODO
+    console.log(entry);
+    await this.http.put('https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-' + this.pseudonym + '/' + entry.id, entry).toPromise();
   }
 
   async deleteEntry(entry: Entry): Promise<void> {
-    // TODO
+    await this.http.delete('https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-' + this.pseudonym + '/' + entry.id).toPromise();
   }
 
   async loadAllEntries(): Promise<Entry[]> {
-    return [
-      {
-        date: '2021-01-15',
-        time: '19:37',
-        headache: false,
-        intensity: 'middleIntensity',
-        water: true,
-        pill: true,
-        mood: 'well',
-        weather: 'sunny',
-        illness: true
-      },
-      {
-        date: '2021-01-15',
-        time: '19:37',
-        headache: true,
-        intensity: 'middleIntensity',
-        water: true,
-        pill: true,
-        mood: 'bad',
-        weather: 'cloudy',
-        illness: true
-      },
-      {
-        date: '2021-01-15',
-        time: '19:37',
-        headache: true,
-        intensity: 'weakIntensity',
-        water: false,
-        pill: true,
-        mood: 'stressed',
-        weather: 'rainfall',
-        illness: true
-      },
-      {
-        date: '2021-01-15',
-        time: '19:37',
-        headache: true,
-        intensity: 'middleIntensity',
-        water: true,
-        pill: false,
-        mood: 'relaxed',
-        weather: 'foggy',
-        illness: true
-      },
-      {
-        date: '2021-01-15',
-        time: '19:37',
-        headache: true,
-        intensity: 'weakIntensity',
-        water: true,
-        pill: true,
-        mood: 'tired',
-        weather: 'rainfall',
-        illness: true
-      },
-      {
-        date: '2021-01-15',
-        time: '19:37',
-        headache: true,
-        intensity: 'strongIntensity',
-        water: true,
-        pill: false,
-        mood: 'fresh',
-        weather: 'thunderstorm',
-        illness: false
-      },
-      {
-        date: '2021-01-15',
-        time: '19:37',
-        headache: false,
-        intensity: '',
-        water: true,
-        pill: true,
-        mood: 'bad',
-        weather: 'stormy',
-        illness: false
-      }
-    ];
+    const allEntries = await this.http
+      .get<Entry[]>('https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-' + this.pseudonym)
+      .toPromise();
+
+    if (allEntries.length > 0) {
+      return allEntries;
+    } else {
+      return [];
+    }
   }
 }

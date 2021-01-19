@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {MainService} from '../main.service';
 
 @Component({
   selector: 'app-login',
@@ -7,19 +8,19 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  pseudonym: string;
+  pseudonym = undefined;
   alert = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private service: MainService) {
   }
 
   ngOnInit(): void {
   }
 
-  async savePseudonym(): Promise<void> {
+  async login(): Promise<void> {
     if (this.pseudonym != null) {
-      await this.router.navigate(['uebersicht/' + this.pseudonym]);
-      // TODO
+      await this.router.navigate(['neuer-eintrag']);
+      this.service.pseudonym = this.pseudonym;
     } else {
       this.alert = true;
     }

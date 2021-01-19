@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MainService} from '../main.service';
 import {Entry} from '../interfaces';
 import {formatDateToString, formatTimeToString} from '../utils';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -22,7 +23,7 @@ export class FormComponent implements OnInit {
 
   test = false;
 
-  constructor(private service: MainService) { }
+  constructor(public service: MainService, private router: Router) { }
 
   ngOnInit(): void {
     this.date = formatDateToString(new Date());
@@ -42,5 +43,6 @@ export class FormComponent implements OnInit {
       illness: this.illness,
     };
     await this.service.save(entry);
+    await this.router.navigate(['/uebersicht']);
   }
 }
