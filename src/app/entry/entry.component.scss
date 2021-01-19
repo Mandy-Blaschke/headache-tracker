@@ -24,6 +24,18 @@ main {
         text-align: center;
         position: relative;
 
+        @media (max-width: 510px) {
+          width: 40px;
+        }
+
+        @media (max-width: 420px) {
+          width: 30px;
+        }
+
+        @media (max-width: 350px) {
+          width: 27px;
+        }
+
         .tooltip-text {
           position: absolute;
           top: -35px;
@@ -52,6 +64,10 @@ main {
     .button-box {
       display: flex;
       margin-left: 45px;
+
+      @media (max-width: 350px) {
+        margin-left: 25px;
+      }
     }
   }
 }
