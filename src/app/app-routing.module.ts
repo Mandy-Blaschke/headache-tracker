@@ -10,7 +10,7 @@ import {LoginComponent} from './login/login.component';
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/login'},
   {path: 'login', component: LoginComponent},
-  {path: 'übersicht', component: OverviewComponent},
+  {path: 'uebersicht/:pseudonym', component: OverviewComponent},
   {path: 'neuer-eintrag', component: FormComponent},
   {path: 'eintrag/:datum', component: EntryComponent},
   {path: 'eintrag/:datum/:zeit/:bearbeiten', component: EditComponent},

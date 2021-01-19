@@ -8,9 +8,15 @@
 
     <h2>Pseudonym</h2>
 
-    <input type="text" [(ngModel)]="pseudonym" placeholder="Dein Name">
+    <div class="alert" *ngIf="alert">
+      Bitte gib einen Namen an!
+    </div>
 
-    <app-button>Anmelden</app-button>
+    <input type="text" [(ngModel)]="pseudonym" placeholder="Dein Name" [class.alert-border]="alert">
+
+    <app-button (click)="savePseudonym()">Anmelden</app-button>
   </div>
+
+
 
 </main>
