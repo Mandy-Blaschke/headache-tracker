@@ -19,6 +19,9 @@ export class OverviewComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    if (!this.service.assurePseudonymIsPicked()){
+      return;
+    }
     this.entries = await this.service.loadAllEntries();
     this.getDates();
   }

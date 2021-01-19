@@ -20,6 +20,9 @@ export class EditComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, public service: MainService, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
+    if (!this.service.assurePseudonymIsPicked()){
+      return;
+    }
     this.allEntries = await this.service.loadAllEntries();
     this.entryToEditDate = this.activatedRoute.snapshot.paramMap.get('datum');
     this.entryToEditTime = this.activatedRoute.snapshot.paramMap.get('zeit');
