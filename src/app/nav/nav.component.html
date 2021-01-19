@@ -1,6 +1,6 @@
 <main>
 
-  <div class="row">
+  <div class="row" *ngIf="service.pseudonym !== ''">
 
     <a routerLink="/neuer-eintrag" [routerLinkActive]="'active'">
       <h3>Neuer Eintrag</h3>

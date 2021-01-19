@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
 // @ts-ignore
 export class MainService {
 
-  pseudonym = 'Mandy';
+  pseudonym = '';
 
   constructor(private http: HttpClient) {
   }
