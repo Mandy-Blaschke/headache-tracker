@@ -1,6 +1,6 @@
 <main>
 
-  <app-nav></app-nav>
+  <app-nav *ngIf="active !== '/'"></app-nav>
 
   <router-outlet></router-outlet>
 

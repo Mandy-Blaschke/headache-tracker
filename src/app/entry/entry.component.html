@@ -102,7 +102,7 @@
 
       <div class="button-box">
 
-        <div class="icon" (click)="service.editEntry(entry)">✏️
+        <div class="icon" [routerLink]="'/eintrag/' + entry.date + '/' + entry.time + '/bearbeiten'">✏️
           <span class="tooltip-text">Bearbeiten</span>
         </div>
 

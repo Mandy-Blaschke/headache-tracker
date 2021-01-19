@@ -1,0 +1,9 @@
+@use "src/app/main-styles";
+
+.form {
+  @include main-styles.form;
+}
+
+
+
+

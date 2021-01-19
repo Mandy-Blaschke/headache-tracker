@@ -8,6 +8,9 @@ import { FormComponent } from './form/form.component';
 import { OverviewComponent } from './overview/overview.component';
 import {FormsModule} from '@angular/forms';
 import { EntryComponent } from './entry/entry.component';
+import { EditComponent } from './edit/edit.component';
+import { LoginComponent } from './login/login.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { EntryComponent } from './entry/entry.component';
     NavComponent,
     FormComponent,
     OverviewComponent,
-    EntryComponent
+    EntryComponent,
+    EditComponent,
+    LoginComponent,
+    ButtonComponent
   ],
     imports: [
         BrowserModule,

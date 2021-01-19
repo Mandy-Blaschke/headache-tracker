@@ -10,3 +10,74 @@ $cyan-dark: #127577;
   background-color: rgba(white, 0.5);
   border-radius: 8px;
 }
+
+@mixin form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  @include box-background;
+
+  label {
+    margin: 15px 0;
+
+    input, option, select {
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      padding: 2px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+
+    .container {
+      width: 25px;
+      height: 15px;
+      border-radius: 8px;
+      position: relative;
+      margin-left: 15px;
+
+      &.false {
+        background-color: rgba($gray-light, 0.3);
+      }
+
+      &.true {
+        background-color: rgba($cyan-light, 0.3);
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .circle {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: $cyan-dark;
+
+        &.false {
+          top: 0;
+          left: 0;
+        }
+
+        &.true {
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  .button-box {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+  }
+}

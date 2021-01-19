@@ -76,8 +76,4 @@ export class OverviewComponent implements OnInit {
   filterDateChanged(): void {
     this.getDates();
   }
-
-  async showDay(date: Day): Promise<void> {
-    // Todo
-  }
 }

@@ -20,8 +20,8 @@ export class EntryComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    this.activeDate = this.activatedRoute.snapshot.paramMap.get('datum');
     this.allEntries = await this.service.loadAllEntries();
+    this.activeDate = this.activatedRoute.snapshot.paramMap.get('datum');
     this.findActiveDate();
     this.dateForView = formatDateStringForView(this.activeDate);
   }
