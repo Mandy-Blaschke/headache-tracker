@@ -18,7 +18,6 @@ export class MainService {
   }
 
   async editEntry(entry: Entry): Promise<void> {
-    console.log(entry);
     await this.http.put('https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-' + this.pseudonym + '/' + entry.id, entry).toPromise();
   }
 

@@ -9,17 +9,34 @@ main {
     display: flex;
     align-items: center;
 
-    input {
-      width: 55px;
-      font-weight: bold;
-      font-size: 20px;
-      border: none;
-      border-radius: 8px;
-      padding: 2px 4px;
-      background-color: rgba(white, 0.5);
+    @media (max-width: 440px) {
+      flex-direction: column;
 
-      &:hover {
-        cursor: pointer;
+      .days {
+
+        h2 {
+          margin: 0;
+        }
+      }
+
+    }
+
+    .days {
+      display: flex;
+      align-items: center;
+
+      input {
+        width: 55px;
+        font-weight: bold;
+        font-size: 20px;
+        border: none;
+        border-radius: 8px;
+        padding: 2px 4px;
+        background-color: rgba(white, 0.5);
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
@@ -58,4 +75,5 @@ main {
       }
     }
   }
+
 }

@@ -40,13 +40,13 @@ export class EditComponent implements OnInit {
       intensity: this.entryToEdit.intensity,
       pill: this.entryToEdit.pill,
       mood: this.entryToEdit.mood,
-      weather: this.entryToEdit.mood,
+      weather: this.entryToEdit.weather,
       water: this.entryToEdit.water,
       illness: this.entryToEdit.illness,
       id: this.entryToEdit.id,
     };
     await this.service.editEntry(editedEntry);
-    await this.router.navigate(['/uebersicht']);
+    await this.router.navigate(['/eintrag/' + this.entryToEditDate]);
   }
 
   async cancel(): Promise<void> {

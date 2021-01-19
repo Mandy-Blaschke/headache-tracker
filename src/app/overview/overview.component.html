@@ -5,14 +5,16 @@
   <div class="filter">
 
     <h2>Deine Einträge der letzten &nbsp;</h2>
-    <span>
+    <div class="days">
+      <span>
       <input type="number"
              min="1"
              [(ngModel)]="filterDays"
              (ngModelChange)="filterDateChanged()"
       >
     </span>
-    <h2> &nbsp;Tage</h2>
+      <h2> &nbsp;Tage</h2>
+    </div>
 
   </div>
 
