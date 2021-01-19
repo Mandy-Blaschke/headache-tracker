@@ -1,0 +1,119 @@
+<main>
+
+  <h2>Eintrag vom: {{dateForView}}</h2>
+
+  <div class="entry" *ngFor="let entry of entries">
+
+    <div class="row time">
+      <h3>🕖 {{entry.time}} Uhr</h3>
+    </div>
+
+    <div class="row">
+
+      <div class="icon">
+        <div *ngIf="!entry.headache">🟢
+          <span class="tooltip-text">keine</span>
+        </div>
+
+        <div *ngIf="entry.headache && entry.intensity === 'strongIntensity'">🔴
+          <span class="tooltip-text">stark</span>
+        </div>
+
+        <div *ngIf="entry.headache && entry.intensity === 'middleIntensity'">🟠
+          <span class="tooltip-text">mittel</span>
+        </div>
+
+        <div *ngIf="entry.headache && entry.intensity === 'weakIntensity'">🟡
+          <span class="tooltip-text">schwach</span>
+        </div>
+      </div>
+
+
+      <div class="icon">
+        <div *ngIf="entry.pill">💊
+          <span class="tooltip-text">Tablette genommen</span>
+        </div>
+      </div>
+
+      <div class="icon">
+        <div *ngIf="entry.water">🥛
+          <span class="tooltip-text">Ausreichend getrunken</span>
+        </div>
+      </div>
+
+      <div class="icon">
+        <div *ngIf="entry.mood === 'relaxed'">😌
+          <span class="tooltip-text">Entspannt</span>
+        </div>
+
+        <div *ngIf="entry.mood === 'stressed'">😫
+          <span class="tooltip-text">Gestresst</span>
+        </div>
+
+        <div *ngIf="entry.mood === 'tired'">🥱
+          <span class="tooltip-text">Müde</span>
+        </div>
+
+        <div *ngIf="entry.mood === 'fresh'">🤗️
+          <span class="tooltip-text">Wach</span>
+        </div>
+
+        <div *ngIf="entry.mood === 'well'">🙂
+          <span class="tooltip-text">Gut</span>
+        </div>
+
+        <div *ngIf="entry.mood === 'bad'">☹️
+          <span class="tooltip-text">Schlecht</span>
+        </div>
+      </div>
+
+      <div class="icon">
+        <div *ngIf="entry.weather === 'sunny'">🌤️
+          <span class="tooltip-text">Sonne</span>
+        </div>
+
+        <div *ngIf="entry.weather === 'cloudy'">☁️
+          <span class="tooltip-text">Wolken</span>
+        </div>
+
+        <div *ngIf="entry.weather === 'thunderstorm'">🌩️
+          <span class="tooltip-text">Gewitter</span>
+        </div>
+
+        <div *ngIf="entry.weather === 'stormy'">🍃
+          <span class="tooltip-text">Wind / Sturm</span>
+        </div>
+
+        <div *ngIf="entry.weather === 'rainfall'">🌧️
+          <span class="tooltip-text">Regen / Schnee</span>
+        </div>
+
+        <div *ngIf="entry.weather === 'foggy'">🌫️
+          <span class="tooltip-text">Nebel</span>
+        </div>
+      </div>
+
+
+      <div class="icon">
+        <div *ngIf="entry.illness">🤒
+          <span class="tooltip-text">Krankheit</span>
+        </div>
+      </div>
+
+      <div class="button-box">
+
+        <div class="icon" (click)="service.editEntry(entry)">✏️
+          <span class="tooltip-text">Bearbeiten</span>
+        </div>
+
+        <div class="icon" (click)="service.deleteEntry(entry)">❌️
+          <span class="tooltip-text">Löschen</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>

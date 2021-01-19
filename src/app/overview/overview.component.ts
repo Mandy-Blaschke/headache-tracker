@@ -21,7 +21,6 @@ export class OverviewComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.entries = await this.service.loadAllEntries();
     this.getDates();
-    console.log(this.dates);
   }
 
   getDates(): void {
@@ -42,6 +41,7 @@ export class OverviewComponent implements OnInit {
       this.dates.push(
         {
           date: formattedStringDate,
+          stringDate,
           entries,
           hasHeadache: anyEntryWithHeadache !== undefined,
           headacheLevel: this.getHeadAcheLevel(entries),
@@ -74,7 +74,10 @@ export class OverviewComponent implements OnInit {
   }
 
   filterDateChanged(): void {
-    console.log(this.filterDays);
     this.getDates();
+  }
+
+  async showDay(date: Day): Promise<void> {
+    // Todo
   }
 }

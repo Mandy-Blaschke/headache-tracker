@@ -41,6 +41,16 @@ main {
 
       .icon {
         align-self: center;
+
+        &.glass {
+          border: none;
+          outline: none;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+          }
+        }
       }
     }
   }

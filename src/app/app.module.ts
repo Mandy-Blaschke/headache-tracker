@@ -7,13 +7,15 @@ import { NavComponent } from './nav/nav.component';
 import { FormComponent } from './form/form.component';
 import { OverviewComponent } from './overview/overview.component';
 import {FormsModule} from '@angular/forms';
+import { EntryComponent } from './entry/entry.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     FormComponent,
-    OverviewComponent
+    OverviewComponent,
+    EntryComponent
   ],
     imports: [
         BrowserModule,

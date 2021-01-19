@@ -14,6 +14,7 @@ export interface Entry {
 
 export interface Day {
   date: string;
+  stringDate: string;
   entries: Entry[];
   hasHeadache: boolean;
   headacheLevel: number;

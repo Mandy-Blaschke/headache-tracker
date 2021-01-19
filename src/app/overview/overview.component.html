@@ -19,16 +19,6 @@
 
   <div class="box">
 
-    <!--
-    <div class="row">
-
-      <h4 class="row-item">Datum</h4>
-      <h4 class="row-item">?</h4>
-      <h4 class="row-item">Ansicht</h4>
-
-    </div>
-    -->
-
     <div *ngFor="let date of dates" class="row">
 
       <p class="row-item">{{date.date}}</p>
@@ -44,7 +34,7 @@
         </div>
       </div>
 
-      <div class="row-item icon">🔍</div>
+      <div class="row-item icon glass" [routerLink]="'/eintrag/' + date.stringDate">🔍</div>
 
     </div>
 

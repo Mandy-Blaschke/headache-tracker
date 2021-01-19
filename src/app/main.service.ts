@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Entry} from './interfaces';
 
 @Injectable({
@@ -7,16 +7,20 @@ import {Entry} from './interfaces';
 // @ts-ignore
 export class MainService {
 
-  constructor() { }
+  constructor() {
+  }
 
   async save(entry: Entry): Promise<void> {
+    // TODO
     console.log('save');
   }
 
   async editEntry(entry: Entry): Promise<void> {
+    // TODO
   }
 
   async deleteEntry(entry: Entry): Promise<void> {
+    // TODO
   }
 
   async loadAllEntries(): Promise<Entry[]> {
@@ -33,7 +37,7 @@ export class MainService {
         illness: true
       },
       {
-        date: '2021-01-14',
+        date: '2021-01-15',
         time: '19:37',
         headache: true,
         intensity: 'middleIntensity',
@@ -44,21 +48,21 @@ export class MainService {
         illness: true
       },
       {
-        date: '2021-01-13',
+        date: '2021-01-15',
         time: '19:37',
         headache: true,
         intensity: 'weakIntensity',
         water: false,
         pill: true,
         mood: 'stressed',
-        weather: 'thunderstorm',
+        weather: 'rainfall',
         illness: true
       },
       {
-        date: '2021-01-12',
+        date: '2021-01-15',
         time: '19:37',
         headache: true,
-        intensity: '',
+        intensity: 'middleIntensity',
         water: true,
         pill: false,
         mood: 'relaxed',
@@ -69,7 +73,7 @@ export class MainService {
         date: '2021-01-15',
         time: '19:37',
         headache: true,
-        intensity: 'strongIntensity',
+        intensity: 'weakIntensity',
         water: true,
         pill: true,
         mood: 'tired',
@@ -82,8 +86,19 @@ export class MainService {
         headache: true,
         intensity: 'strongIntensity',
         water: true,
-        pill: true,
+        pill: false,
         mood: 'fresh',
+        weather: 'thunderstorm',
+        illness: false
+      },
+      {
+        date: '2021-01-15',
+        time: '19:37',
+        headache: false,
+        intensity: '',
+        water: true,
+        pill: true,
+        mood: 'bad',
         weather: 'stormy',
         illness: false
       }
