@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MainService} from '../main.service';
 import {Entry} from '../interfaces';
@@ -17,12 +17,15 @@ export class EditComponent implements OnInit {
   allEntries: Entry[] = [];
   entryToEditDateView: string;
 
-  constructor(private activatedRoute: ActivatedRoute, public service: MainService, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, public service: MainService, private router: Router) {
+  }
 
   async ngOnInit(): Promise<void> {
+
     if (!this.service.assurePseudonymIsPicked()){
       return;
     }
+
     this.allEntries = await this.service.loadAllEntries();
     this.entryToEditDate = this.activatedRoute.snapshot.paramMap.get('datum');
     this.entryToEditTime = this.activatedRoute.snapshot.paramMap.get('zeit');

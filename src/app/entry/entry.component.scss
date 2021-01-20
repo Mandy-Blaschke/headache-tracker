@@ -6,6 +6,52 @@ main {
     @include main-styles.box-background;
     box-sizing: border-box;
     margin: 25px 0;
+    position: relative;
+
+    .deleteWarning {
+      position: absolute;
+      top: 65px;
+      left: 0;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: bolder;
+      color: white;
+      background-color: rgba(18, 117, 119, 0.7);
+      backdrop-filter: blur(7px);
+      border-radius: 8px;
+
+      p {
+        text-align: center;
+      }
+
+      button {
+        outline: none;
+        border: none;
+        user-select: none;
+        border-radius: 15px;
+        width: 70px;
+        box-shadow: 0 0 3px #565656;
+        margin: 25px 15px 0 15px;
+        padding: 10px;
+        color: white;
+        background-color: darken(main-styles.$gray-light, 10%);
+        font-size: 20px;
+        font-weight: bold;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:active {
+          box-shadow: none;
+          transform: scale(0.98);
+          background-color: main-styles.$gray-dark;
+        }
+      }
+    }
 
     .row {
       display: flex;
@@ -35,6 +81,7 @@ main {
         padding: 5px;
 
         .tooltip-text {
+          user-select: none;
           font-size: 0.8rem;
           position: absolute;
           top: -35px;
@@ -71,5 +118,9 @@ main {
         margin: 0 15px;
       }
     }
+  }
+
+  .hidden {
+    display: none;
   }
 }

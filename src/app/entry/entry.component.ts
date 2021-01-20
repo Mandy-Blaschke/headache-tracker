@@ -16,13 +16,17 @@ export class EntryComponent implements OnInit {
   entries: Entry[] = [];
   allEntries: Entry[] = [];
 
+  deleteWarning = false;
+
   constructor(private activatedRoute: ActivatedRoute, public service: MainService, private router: Router) {
   }
 
   async ngOnInit(): Promise<void> {
+
     if (!this.service.assurePseudonymIsPicked()){
       return;
     }
+
     this.allEntries = await this.service.loadAllEntries();
     this.activeDate = this.activatedRoute.snapshot.paramMap.get('datum');
     this.findActiveDate();
@@ -33,8 +37,18 @@ export class EntryComponent implements OnInit {
     this.entries = this.allEntries.filter((entry: Entry) => entry.date === this.activeDate);
   }
 
-  async deleteEntry(entry: Entry): Promise<void> {
+  askForDeleteEntry(): void {
+    this.deleteWarning = true;
+  }
+
+  async deleteEntry(entry: Entry): Promise<void>{
     await this.service.deleteEntry(entry);
     await this.router.navigate(['/uebersicht']);
+
+  }
+
+  async cancelDeleteEntry(entry: Entry): Promise<void> {
+    await this.router.navigate(['/eintrag/' + entry.date]);
+    this.deleteWarning = false;
   }
 }
