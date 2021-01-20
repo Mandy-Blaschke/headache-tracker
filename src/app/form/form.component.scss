@@ -15,7 +15,7 @@
     margin: 15px;
 
     .hand {
-      animation: waggle linear infinite 420ms;
+      animation: beckon linear infinite 420ms;
     }
   }
 }
@@ -33,7 +33,7 @@
 }
 
 
-@keyframes waggle {
+@keyframes beckon {
   25% {
     transform: rotate(-7deg);
     transform-origin: bottom center;

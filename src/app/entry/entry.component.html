@@ -134,12 +134,17 @@
 
     <div class="button-box row">
 
-      <div class="icon" [class.hidden]="entry.showDeleteWarning"
-           [routerLink]="'/eintrag/' + entry.date + '/' + entry.time + '/bearbeiten'">✏️
+      <div class="icon"
+           [class.hidden]="entry.showDeleteWarning"
+           [routerLink]="'/eintrag/' + entry.date + '/' + entry.time + '/bearbeiten'">
+        ✏️
         <span class="tooltip-text">Bearbeiten</span>
       </div>
 
-      <div class="icon" [class.hidden]="entry.showDeleteWarning" (click)="askForDeleteEntry(entry)">❌️
+      <div class="icon"
+           [class.hidden]="entry.showDeleteWarning"
+           (click)="askForDeleteEntry(entry)">
+        ❌️
         <span class="tooltip-text">Löschen</span>
       </div>
 
