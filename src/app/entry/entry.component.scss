@@ -20,38 +20,13 @@ main {
       justify-content: center;
       font-weight: bolder;
       color: white;
-      background-color: rgba(18, 117, 119, 0.7);
+      background-color: rgba(main-styles.$gray-dark, 0.7);
       backdrop-filter: blur(7px);
       border-radius: 8px;
       z-index: 3;
 
       p {
         text-align: center;
-      }
-
-      button {
-        outline: none;
-        border: none;
-        user-select: none;
-        border-radius: 15px;
-        width: 70px;
-        box-shadow: 0 0 3px #565656;
-        margin: 25px 15px 0 15px;
-        padding: 10px;
-        color: white;
-        background-color: darken(main-styles.$gray-light, 10%);
-        font-size: 20px;
-        font-weight: bold;
-
-        &:hover {
-          cursor: pointer;
-        }
-
-        &:active {
-          box-shadow: none;
-          transform: scale(0.98);
-          background-color: main-styles.$gray-dark;
-        }
       }
     }
 

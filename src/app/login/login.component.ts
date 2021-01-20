@@ -22,9 +22,9 @@ export class LoginComponent implements OnInit {
     if (this.pseudonym != null) {
       const reg = /^[a-z0-9]+$/gi;
 
-      if (reg.test(this.pseudonym)) {
+      if (reg.test(this.pseudonym.toLowerCase())) {
         await this.router.navigate(['neuer-eintrag']);
-        this.service.pseudonym = this.pseudonym.toLowerCase();
+        this.service.pseudonym = this.pseudonym;
       } else {
         this.wrongName = true;
         this.noName = false;

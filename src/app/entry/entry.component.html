@@ -126,8 +126,8 @@
     <div class="deleteWarning" *ngIf="entry.showDeleteWarning">
       <p>Möchtest du den Eintrag wirklich löschen?</p>
       <div>
-        <button (click)="deleteEntry(entry)">Ja</button>
-        <button (click)="cancelDeleteEntry(entry)">Nein</button>
+        <app-button (click)="deleteEntry(entry)">Ja</app-button>
+        <app-button (click)="cancelDeleteEntry(entry)">Nein</app-button>
       </div>
     </div>
 

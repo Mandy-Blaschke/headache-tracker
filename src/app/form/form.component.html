@@ -37,31 +37,35 @@
     </div>
   </div>
 
-  <label *ngIf="headache">
-    Wie stark sind die Kopfschmerzen?
-    <select [(ngModel)]="intensity">
-      <option value="">--Bitte wählen--</option>
-      <option value="strongIntensity">Stark</option>
-      <option value="middleIntensity">Mittel</option>
-      <option value="weakIntensity">Schwach</option>
-    </select>
-  </label>
+  <div *ngIf="headache" class="details">
 
-  <div class="row" *ngIf="headache">
-    <p>
-      Hast Du eine Tablette genommen?
-    </p>
-    <div class="container"
-         (click)="pill = !pill"
-         [class.true]="pill"
-         [class.false]="!pill"
-    >
-      <div class="circle"
+    <label>
+      Wie stark sind die Kopfschmerzen?
+      <select [(ngModel)]="intensity">
+        <option value="">--Bitte wählen--</option>
+        <option value="strongIntensity">Stark</option>
+        <option value="middleIntensity">Mittel</option>
+        <option value="weakIntensity">Schwach</option>
+      </select>
+    </label>
+
+    <div class="row">
+      <p>
+        Hast Du eine Tablette genommen?
+      </p>
+      <div class="container"
+           (click)="pill = !pill"
            [class.true]="pill"
            [class.false]="!pill"
       >
+        <div class="circle"
+             [class.true]="pill"
+             [class.false]="!pill"
+        >
+        </div>
       </div>
     </div>
+
   </div>
 
 

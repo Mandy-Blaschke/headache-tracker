@@ -13,6 +13,7 @@ button {
   background-color: main-styles.$cyan;
   box-shadow: 0 0 3px #565656;
   margin: 25px 15px 0 15px;
+  min-width: 70px;
 
   &:hover {
     cursor: pointer;

@@ -63,6 +63,8 @@ main {
           border: none;
           outline: none;
           font-size: 20px;
+          background-color: rgba(white, 0.6);
+          border-radius: 8px;
 
           &:hover {
             cursor: pointer;
