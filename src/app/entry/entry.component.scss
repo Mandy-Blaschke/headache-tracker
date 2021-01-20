@@ -52,18 +52,20 @@ main {
       }
 
       .icon {
+        position: relative;
+        display: flex;
+        justify-content: center;
 
         .tooltip-text {
           user-select: none;
           font-size: 0.8rem;
           position: absolute;
-          top: -35px;
-          left: -10px;
+          top: -10px;
           z-index: 2;
-          visibility: hidden;
+          // visibility: hidden;
           width: max-content;
           background-color: rgba(255, 255, 255, 0.95);
-          font-weight: bold;
+          font-weight: bolder;
           text-align: center;
           border-radius: 6px;
           padding: 2px;
