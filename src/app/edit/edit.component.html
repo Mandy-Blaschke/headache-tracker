@@ -1,6 +1,10 @@
 <main>
 
-  <h2>Eintrag vom {{entryToEditDateView}} um {{entryToEditTime}}</h2>
+  <h2>
+    Eintrag vom {{entryToEditDateView}}
+    <br>
+    um {{entryToEditTime}} Uhr
+  </h2>
 
 
   <div class="form" *ngIf="entryToEdit != null">
@@ -122,9 +126,9 @@
     </div>
 
     <div class="button-box">
-      <app-button (click)="updateEntry()">Speichern</app-button>
+      <app-button (click)="updateEntry()">✅</app-button>
 
-      <app-button (click)="cancel()">Abbrechen</app-button>
+      <app-button (click)="cancel()">❌️</app-button>
     </div>
 
   </div>

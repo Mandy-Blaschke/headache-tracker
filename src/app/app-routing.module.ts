@@ -4,12 +4,10 @@ import {OverviewComponent} from './overview/overview.component';
 import {FormComponent} from './form/form.component';
 import {EntryComponent} from './entry/entry.component';
 import {EditComponent} from './edit/edit.component';
-import {LoginComponent} from './login/login.component';
 
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: '/login'},
-  {path: 'login', component: LoginComponent},
+  {path: '', pathMatch: 'full', redirectTo: '/uebersicht'},
   {path: 'uebersicht', component: OverviewComponent},
   {path: 'neuer-eintrag', component: FormComponent},
   {path: 'eintrag/:datum', component: EntryComponent},

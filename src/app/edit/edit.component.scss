@@ -1,7 +1,14 @@
 @use "src/app/main-styles";
 
-.form {
-  @include main-styles.form;
+main {
+
+  h2 {
+    text-align: center;
+  }
+
+  .form {
+    @include main-styles.form;
+  }
 }
 
 

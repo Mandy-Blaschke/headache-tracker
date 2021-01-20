@@ -134,19 +134,19 @@
 
     <div class="button-box row">
 
-      <div class="icon"
+      <app-button class="icon"
            [class.hidden]="entry.showDeleteWarning"
            [routerLink]="'/eintrag/' + entry.date + '/' + entry.time + '/bearbeiten'">
         ✏️
         <span class="tooltip-text">Bearbeiten</span>
-      </div>
+      </app-button>
 
-      <div class="icon"
+      <app-button class="icon"
            [class.hidden]="entry.showDeleteWarning"
            (click)="askForDeleteEntry(entry)">
-        ❌️
+        🗑️
         <span class="tooltip-text">Löschen</span>
-      </div>
+      </app-button>
 
     </div>
 

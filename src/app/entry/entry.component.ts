@@ -22,11 +22,6 @@ export class EntryComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-
-    if (!this.service.assurePseudonymIsPicked()){
-      return;
-    }
-
     this.allEntries = await this.service.loadAllEntries();
     this.activeDate = this.activatedRoute.snapshot.paramMap.get('datum');
     this.findActiveDate();

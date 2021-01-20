@@ -26,11 +26,6 @@ export class FormComponent implements OnInit {
   constructor(public service: MainService, private router: Router) { }
 
   ngOnInit(): void {
-
-    if (!this.service.assurePseudonymIsPicked()){
-      return;
-    }
-
     this.date = formatDateToString(new Date());
     this.time = formatTimeToString(new Date());
   }

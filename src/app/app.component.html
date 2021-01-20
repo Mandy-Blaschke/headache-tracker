@@ -2,6 +2,8 @@
 
   <app-nav></app-nav>
 
-  <router-outlet></router-outlet>
+  <app-login *ngIf="service.pseudonym == ''"></app-login>
+
+  <router-outlet *ngIf="service.pseudonym != ''"></router-outlet>
 
 </main>

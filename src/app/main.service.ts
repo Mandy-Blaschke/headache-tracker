@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Entry} from './interfaces';
 import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,7 @@ export class MainService {
 
   pseudonym = '';
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient) {
   }
 
   async save(entry: Entry): Promise<void> {
@@ -35,15 +34,6 @@ export class MainService {
       return allEntries;
     } else {
       return [];
-    }
-  }
-
-  assurePseudonymIsPicked(): boolean {
-    if (this.pseudonym === '') {
-      this.router.navigate(['/login']).then();
-      return false;
-    } else {
-      return true;
     }
   }
 }
