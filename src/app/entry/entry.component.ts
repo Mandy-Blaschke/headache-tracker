@@ -37,8 +37,8 @@ export class EntryComponent implements OnInit {
     this.entries = this.allEntries.filter((entry: Entry) => entry.date === this.activeDate);
   }
 
-  askForDeleteEntry(): void {
-    this.deleteWarning = true;
+  askForDeleteEntry(entry: Entry): void {
+    entry.showDeleteWarning = true;
   }
 
   async deleteEntry(entry: Entry): Promise<void>{
@@ -49,6 +49,6 @@ export class EntryComponent implements OnInit {
 
   async cancelDeleteEntry(entry: Entry): Promise<void> {
     await this.router.navigate(['/eintrag/' + entry.date]);
-    this.deleteWarning = false;
+    entry.showDeleteWarning = false;
   }
 }

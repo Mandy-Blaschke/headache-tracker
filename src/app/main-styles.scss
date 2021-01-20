@@ -48,9 +48,9 @@ $cyan-dark: #127577;
     }
 
     .container {
-      width: 25px;
-      height: 15px;
-      border-radius: 8px;
+      width: 40px;
+      height: 22px;
+      border-radius: 16px;
       position: relative;
       margin-left: 15px;
 
@@ -68,8 +68,8 @@ $cyan-dark: #127577;
 
       .circle {
         position: absolute;
-        width: 15px;
-        height: 15px;
+        width: 22px;
+        height: 22px;
         border-radius: 50%;
         background-color: $cyan-dark;
 

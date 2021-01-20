@@ -9,6 +9,7 @@ export interface Entry {
   mood: string;
   weather: string;
   illness: boolean;
+  showDeleteWarning: boolean;
 }
 
 

@@ -46,6 +46,7 @@ export class FormComponent implements OnInit {
       mood: this.mood,
       weather: this.weather,
       illness: this.illness,
+      showDeleteWarning: false,
     };
     await this.service.save(entry);
     await this.router.navigate(['/uebersicht']);
