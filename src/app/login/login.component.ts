@@ -9,7 +9,8 @@ import {MainService} from '../main.service';
 })
 export class LoginComponent implements OnInit {
   pseudonym = undefined;
-  alert = false;
+  noName = false;
+  wrongName = false;
 
   constructor(private router: Router, private service: MainService) {
   }
@@ -19,10 +20,19 @@ export class LoginComponent implements OnInit {
 
   async login(): Promise<void> {
     if (this.pseudonym != null) {
-      await this.router.navigate(['neuer-eintrag']);
-      this.service.pseudonym = this.pseudonym;
+      const reg = /^[a-z0-9]+$/gi;
+
+      if (reg.test(this.pseudonym)) {
+        await this.router.navigate(['neuer-eintrag']);
+        this.service.pseudonym = this.pseudonym.toLowerCase();
+      } else {
+        this.wrongName = true;
+        this.noName = false;
+      }
+
     } else {
-      this.alert = true;
+      this.noName = true;
+      this.wrongName = false;
     }
   }
 }
