@@ -8,8 +8,8 @@
       <h3>🕖 {{entry.time}} Uhr</h3>
     </div>
 
-    <div class="row">
 
+    <div class="row">
       <div class="icon">
         <div *ngIf="!entry.headache">🟢
           <span class="tooltip-text">keine</span>
@@ -99,21 +99,22 @@
           <span class="tooltip-text">Krankheit</span>
         </div>
       </div>
+    </div>
 
-      <div class="button-box">
 
-        <div class="icon" [routerLink]="'/eintrag/' + entry.date + '/' + entry.time + '/bearbeiten'">✏️
-          <span class="tooltip-text">Bearbeiten</span>
-        </div>
+    <div class="button-box row">
 
-        <div class="icon" (click)="deleteEntry(entry)">❌️
-          <span class="tooltip-text">Löschen</span>
-        </div>
+      <div class="icon" [routerLink]="'/eintrag/' + entry.date + '/' + entry.time + '/bearbeiten'">✏️
+        <span class="tooltip-text">Bearbeiten</span>
+      </div>
 
+      <div class="icon" (click)="deleteEntry(entry)">❌️
+        <span class="tooltip-text">Löschen</span>
       </div>
 
     </div>
 
   </div>
+
 
 </main>
