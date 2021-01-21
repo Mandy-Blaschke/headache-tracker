@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private service: MainService) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.service.pseudonym = await localStorage.getItem('pseudonym');
   }
 
   async login(): Promise<void> {
@@ -23,8 +24,10 @@ export class LoginComponent implements OnInit {
       const reg = /^[a-z0-9]+$/gi;
 
       if (reg.test(this.pseudonym.toLowerCase())) {
+        localStorage.setItem('pseudonym', this.pseudonym);
         await this.router.navigate(['neuer-eintrag']);
         this.service.pseudonym = this.pseudonym;
+
       } else {
         this.wrongName = true;
         this.noName = false;
