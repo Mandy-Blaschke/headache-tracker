@@ -20,7 +20,7 @@ main {
       justify-content: center;
       font-weight: bolder;
       color: white;
-      background-color: rgba(main-styles.$cyan-dark, 0.7);
+      background-color: rgba(main-styles.$cyan-dark, 0.9);
       backdrop-filter: blur(7px);
       border-radius: 8px;
       z-index: 3;
@@ -62,7 +62,7 @@ main {
         justify-content: center;
 
         .icon {
-          width: 40px;
+          padding: 10px;
         }
 
         .tooltip-text {
@@ -70,7 +70,7 @@ main {
           user-select: none;
           font-size: 0.8rem;
           position: absolute;
-          bottom: 25px;
+          bottom: 35px;
           left: 0;
           z-index: 2;
           visibility: hidden;

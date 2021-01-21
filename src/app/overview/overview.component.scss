@@ -8,99 +8,96 @@ main {
   .filter {
     display: flex;
     align-items: center;
-
-    @media (max-width: 440px) {
-      flex-direction: column;
-
-      .days {
-
-        h2 {
-          margin: 0;
-        }
-      }
-
-    }
+    flex-direction: column;
 
     .days {
-      display: flex;
-      align-items: center;
 
-      input {
-        width: 55px;
-        font-weight: bold;
-        font-size: 20px;
-        text-align: center;
-        outline: none;
+      h2 {
+        margin: 0;
+      }
+    }
+
+  }
+
+  .days {
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 55px;
+      font-weight: bold;
+      font-size: 20px;
+      text-align: center;
+      outline: none;
+      border: none;
+      border-radius: 8px;
+      padding: 2px 4px;
+      background-color: rgba(white, 0.5);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.box {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  @include main-styles.box-background;
+
+  .row {
+    display: flex;
+
+    .row-item {
+      display: flex;
+      width: 80px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .icon-box {
+      align-self: center;
+      position: relative;
+      display: flex;
+      justify-content: center;
+
+      &.glass {
         border: none;
-        border-radius: 8px;
-        padding: 2px 4px;
-        background-color: rgba(white, 0.5);
 
         &:hover {
           cursor: pointer;
         }
+
+        .number-of-entries {
+          font-size: 0.7rem;
+        }
       }
     }
-  }
 
-  .box {
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    @include main-styles.box-background;
+    .tooltip-text {
+      height: fit-content;
+      user-select: none;
+      font-size: 0.8rem;
+      position: absolute;
+      top: -10px;
+      right: -15px;
+      z-index: 2;
+      visibility: hidden;
+      width: max-content;
+      background-color: rgba(255, 255, 255, 0.95);
+      font-weight: bolder;
+      text-align: center;
+      border-radius: 6px;
+      padding: 2px;
+    }
 
-    .row {
-      display: flex;
-
-      .row-item {
-        display: flex;
-        width: 80px;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .icon-box {
-        align-self: center;
-        position: relative;
-        display: flex;
-        justify-content: center;
-
-        &.glass {
-          border: none;
-
-          &:hover {
-            cursor: pointer;
-          }
-
-          .number-of-entries {
-            font-size: 0.7rem;
-          }
-        }
-      }
+    &:hover {
+      cursor: pointer;
 
       .tooltip-text {
-        height: fit-content;
-        user-select: none;
-        font-size: 0.8rem;
-        position: absolute;
-        top: -10px;
-        right: -15px;
-        z-index: 2;
-        visibility: hidden;
-        width: max-content;
-        background-color: rgba(255, 255, 255, 0.95);
-        font-weight: bolder;
-        text-align: center;
-        border-radius: 6px;
-        padding: 2px;
-      }
-
-      &:hover {
-        cursor: pointer;
-
-        .tooltip-text {
-          visibility: visible;
-        }
+        visibility: visible;
       }
     }
   }

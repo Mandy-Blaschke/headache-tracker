@@ -5,6 +5,11 @@
   justify-content: center;
   margin: 15px 0;
 
+  @media (max-width: 435px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
   .text {
     text-align: center;
   }
@@ -12,7 +17,11 @@
   .emoji {
     display: flex;
     align-items: center;
-    margin: 15px;
+    margin: 15px 0 15px 15px;
+
+    @media (max-width: 435px) {
+      margin: 15px 0 0 0;
+    }
 
     .hand {
       animation: beckon linear infinite 420ms;

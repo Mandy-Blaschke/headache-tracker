@@ -11,36 +11,40 @@
     <div class="row">
 
       <div class="icon-box">
+
         <div *ngIf="!entry.headache" class="icon">
           🟢
           <span class="tooltip-text">keine</span>
         </div>
 
         <div *ngIf="entry.headache && entry.intensity === 'strongIntensity'" class="icon">
-            🔴
-            <span class="tooltip-text" [class.hidden]="deleteWarning">starke Schmerzen</span>
-          </div>
+          🔴
+          <span class="tooltip-text" [class.hidden]="deleteWarning">starke Schmerzen</span>
+        </div>
 
         <div *ngIf="entry.headache && entry.intensity === 'middleIntensity'" class="icon">
-            🟠
+          🟠
           <span class="tooltip-text" [class.hidden]="deleteWarning">mittlere Schmerzen</span>
-          </div>
+        </div>
 
         <div *ngIf="entry.headache && entry.intensity === 'weakIntensity'" class="icon">
           🟡
-            <span class="tooltip-text" [class.hidden]="deleteWarning">schwache Schmerzen</span>
-          </div>
+          <span class="tooltip-text" [class.hidden]="deleteWarning">schwache Schmerzen</span>
+        </div>
 
       </div>
 
       <div class="icon-box">
+
         <div *ngIf="entry.pill" class="icon">
           💊
           <span class="tooltip-text" [class.hidden]="deleteWarning">Tablette genommen</span>
         </div>
+
       </div>
 
       <div class="icon-box">
+
         <div *ngIf="entry.water" class="icon">
           🥛
           <span class="tooltip-text" [class.hidden]="deleteWarning">Ausreichend getrunken</span>
@@ -49,35 +53,35 @@
 
       <div class="icon-box">
 
-          <div *ngIf="entry.mood === 'relaxed'" class="icon">
-            😌
+        <div *ngIf="entry.mood === 'relaxed'" class="icon">
+          😌
           <span class="tooltip-text" [class.hidden]="deleteWarning">Entspannt</span>
-          </div>
+        </div>
 
         <div *ngIf="entry.mood === 'stressed'" class="icon">
-            😫
-            <span class="tooltip-text" [class.hidden]="deleteWarning">Gestresst</span>
-          </div>
+          😫
+          <span class="tooltip-text" [class.hidden]="deleteWarning">Gestresst</span>
+        </div>
 
         <div *ngIf="entry.mood === 'tired'" class="icon">
-            🥱
-            <span class="tooltip-text" [class.hidden]="deleteWarning">Müde</span>
-          </div>
+          🥱
+          <span class="tooltip-text" [class.hidden]="deleteWarning">Müde</span>
+        </div>
 
         <div *ngIf="entry.mood === 'fresh'" class="icon">
-            🤗️
-            <span class="tooltip-text" [class.hidden]="deleteWarning">Wach</span>
-          </div>
+          🤗️
+          <span class="tooltip-text" [class.hidden]="deleteWarning">Wach</span>
+        </div>
 
         <div *ngIf="entry.mood === 'well'" class="icon">
-            🙂
-            <span class="tooltip-text" [class.hidden]="deleteWarning">Gut</span>
-          </div>
+          🙂
+          <span class="tooltip-text" [class.hidden]="deleteWarning">Gut</span>
+        </div>
 
         <div *ngIf="entry.mood === 'bad'" class="icon">
-            ☹️
-            <span class="tooltip-text" [class.hidden]="deleteWarning">Schlecht</span>
-          </div>
+          ☹️
+          <span class="tooltip-text" [class.hidden]="deleteWarning">Schlecht</span>
+        </div>
 
       </div>
 
@@ -142,8 +146,8 @@
       </app-button>
 
       <app-button class="icon-box"
-           [class.hidden]="entry.showDeleteWarning"
-           [routerLink]="'/eintrag/' + entry.date + '/' + entry.time + '/bearbeiten'">
+                  [class.hidden]="entry.showDeleteWarning"
+                  [routerLink]="'/eintrag/' + entry.date + '/' + entry.time + '/bearbeiten'">
         ✏️
         <span class="tooltip-text">Bearbeiten</span>
       </app-button>
