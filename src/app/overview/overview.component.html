@@ -24,6 +24,11 @@
 
   <div class="box">
 
+    <button (click)="toggleAscending()" class="sort-button">
+      ⇳
+      <span class="tooltip-text">{{ascendingButtonText}} sortieren</span>
+    </button>
+
     <div *ngFor="let date of dates" class="row">
 
       <p class="row-item">{{date.date}}</p>

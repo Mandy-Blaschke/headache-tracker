@@ -47,6 +47,53 @@ main {
   flex-direction: column;
   @include main-styles.box-background;
 
+  .sort-button {
+    outline: none;
+    user-select: none;
+    border: none;
+    border-radius: 8px;
+    color: main-styles.$gray-dark;
+    font-size: 20px;
+    box-shadow: 0 0 3px #565656;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(main-styles.$cyan-light, 0.2);
+    }
+
+    &:active {
+      box-shadow: inset 0 0 3px #565656;
+      transform: scale(0.98);
+      background-color: rgba(main-styles.$cyan-light, 0.4);
+    }
+
+    .tooltip-text {
+      height: fit-content;
+      user-select: none;
+      font-size: 0.8rem;
+      position: absolute;
+      top: -10px;
+      left: 80px;
+      z-index: 2;
+      visibility: hidden;
+      width: max-content;
+      background-color: rgba(255, 255, 255, 0.95);
+      font-weight: bolder;
+      text-align: center;
+      border-radius: 6px;
+      padding: 2px;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .tooltip-text {
+        visibility: visible;
+      }
+    }
+  }
+
   .row {
     display: flex;
 

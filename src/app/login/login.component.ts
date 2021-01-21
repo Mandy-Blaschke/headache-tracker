@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    this.service.pseudonym = await localStorage.getItem('pseudonym');
+    this.service.pseudonym = await localStorage.getItem('pseudonym') != null ? localStorage.getItem('pseudonym') : '';
   }
 
   async login(): Promise<void> {

@@ -15,6 +15,9 @@ export class OverviewComponent implements OnInit {
 
   filterDays = 7;
 
+  ascending = false;
+  ascendingButtonText = 'aufsteigend';
+
   constructor(private service: MainService) {
   }
 
@@ -77,4 +80,31 @@ export class OverviewComponent implements OnInit {
   filterDateChanged(): void {
     this.getDates();
   }
+
+  sort(): void {
+    this.dates.sort(() => {
+      let pDateFloat = null;
+      let cDateFloat = null;
+      for (const day of this.dates) {
+        const pDateArray = day.date.split('.');
+        pDateFloat = parseFloat(pDateArray[2].concat('.', pDateArray[1], pDateArray[0]));
+
+        const cDateArray = day.date.split('.');
+        cDateFloat = parseFloat(cDateArray[2].concat('.', cDateArray[1], cDateArray[0]));
+      }
+
+      if (this.ascending) {
+        return pDateFloat < cDateFloat ? 1 : -1;
+      } else {
+        return pDateFloat > cDateFloat ? 1 : -1;
+      }
+    });
+  }
+
+  toggleAscending(): void {
+    this.ascending = !this.ascending;
+    this.ascendingButtonText = !this.ascending ? 'aufsteigend' : 'absteigend';
+    this.sort();
+  }
 }
+
