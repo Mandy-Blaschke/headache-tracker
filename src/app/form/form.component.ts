@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MainService} from '../main.service';
 import {Entry} from '../interfaces';
 import {formatDateToString, formatTimeToString} from '../utils';
@@ -21,9 +21,10 @@ export class FormComponent implements OnInit {
   date: string;
   time: string;
 
-  test = false;
+  intensityWarning = false;
 
-  constructor(public service: MainService, private router: Router) { }
+  constructor(public service: MainService, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.date = formatDateToString(new Date());
@@ -31,19 +32,23 @@ export class FormComponent implements OnInit {
   }
 
   async saveEntry(): Promise<void> {
-    const entry: Entry = {
-      date: this.date,
-      time: this.time,
-      headache: this.headache,
-      intensity: this.intensity,
-      water: this.water,
-      pill: this.pill,
-      mood: this.mood,
-      weather: this.weather,
-      illness: this.illness,
-      showDeleteWarning: false,
-    };
-    await this.service.save(entry);
-    await this.router.navigate(['/uebersicht']);
+    if (this.headache && this.intensity !== '' || !this.headache) {
+      const entry: Entry = {
+        date: this.date,
+        time: this.time,
+        headache: this.headache,
+        intensity: this.intensity,
+        water: this.water,
+        pill: this.pill,
+        mood: this.mood,
+        weather: this.weather,
+        illness: this.illness,
+        showDeleteWarning: false,
+      };
+      await this.service.save(entry);
+      await this.router.navigate(['/uebersicht']);
+    } else {
+      this.intensityWarning = true;
+    }
   }
 }

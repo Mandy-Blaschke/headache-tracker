@@ -49,7 +49,7 @@
         Wie stark sind die Kopfschmerzen?
       </p>
       <label>
-        <select [(ngModel)]="intensity">
+        <select [(ngModel)]="intensity" [class.intensityWarning]="intensityWarning">
           <option value="">--Bitte wählen--</option>
           <option value="strongIntensity">Stark</option>
           <option value="middleIntensity">Mittel</option>

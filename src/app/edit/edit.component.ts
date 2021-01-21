@@ -16,6 +16,7 @@ export class EditComponent implements OnInit {
   entryToEditTime: string;
   allEntries: Entry[] = [];
   entryToEditDateView: string;
+  intensityWarning = false;
 
   constructor(private activatedRoute: ActivatedRoute, public service: MainService, private router: Router) {
   }
@@ -34,21 +35,25 @@ export class EditComponent implements OnInit {
   }
 
   async updateEntry(): Promise<void> {
-    const editedEntry: Entry = {
-      date: this.entryToEdit.date,
-      time: this.entryToEdit.time,
-      headache: this.entryToEdit.headache,
-      intensity: this.entryToEdit.intensity,
-      pill: this.entryToEdit.pill,
-      mood: this.entryToEdit.mood,
-      weather: this.entryToEdit.weather,
-      water: this.entryToEdit.water,
-      illness: this.entryToEdit.illness,
-      id: this.entryToEdit.id,
-      showDeleteWarning: this.entryToEdit.showDeleteWarning,
-    };
-    await this.service.editEntry(editedEntry);
-    await this.router.navigate(['/eintrag/' + this.entryToEditDate]);
+    if (this.entryToEdit.headache && this.entryToEdit.intensity !== '' || !this.entryToEdit.headache) {
+      const editedEntry: Entry = {
+        date: this.entryToEdit.date,
+        time: this.entryToEdit.time,
+        headache: this.entryToEdit.headache,
+        intensity: this.entryToEdit.intensity,
+        pill: this.entryToEdit.pill,
+        mood: this.entryToEdit.mood,
+        weather: this.entryToEdit.weather,
+        water: this.entryToEdit.water,
+        illness: this.entryToEdit.illness,
+        id: this.entryToEdit.id,
+        showDeleteWarning: this.entryToEdit.showDeleteWarning,
+      };
+      await this.service.editEntry(editedEntry);
+      await this.router.navigate(['/eintrag/' + this.entryToEditDate]);
+    } else {
+      this.intensityWarning = true;
+    }
   }
 
   async cancel(): Promise<void> {

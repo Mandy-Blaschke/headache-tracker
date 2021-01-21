@@ -25,6 +25,12 @@ $cyan-dark: #127577;
       align-items: flex-start;
     }
 
+    .intensityWarning {
+      border: 1px solid red;
+      box-shadow: 0 0 2px #ff3c3c;
+      animation: fade linear 2s infinite;
+    }
+
     input, option, select {
       border: none;
       outline: none;
