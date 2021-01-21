@@ -29,6 +29,7 @@ main {
         width: 55px;
         font-weight: bold;
         font-size: 20px;
+        text-align: center;
         outline: none;
         border: none;
         border-radius: 8px;
@@ -58,8 +59,11 @@ main {
         align-items: center;
       }
 
-      .icon {
+      .icon-box {
         align-self: center;
+        position: relative;
+        display: flex;
+        justify-content: center;
 
         &.glass {
           border: none;
@@ -73,7 +77,32 @@ main {
           }
         }
       }
+
+      .tooltip-text {
+        height: fit-content;
+        user-select: none;
+        font-size: 0.8rem;
+        position: absolute;
+        top: -10px;
+        right: -15px;
+        z-index: 2;
+        visibility: hidden;
+        width: max-content;
+        background-color: rgba(255, 255, 255, 0.95);
+        font-weight: bolder;
+        text-align: center;
+        border-radius: 6px;
+        padding: 2px;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        .tooltip-text {
+          visibility: visible;
+        }
+      }
     }
   }
-
 }
+

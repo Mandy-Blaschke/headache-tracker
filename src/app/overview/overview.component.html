@@ -9,6 +9,7 @@
       <span>
       <input type="number"
              min="1"
+             max="730"
              [(ngModel)]="filterDays"
              (ngModelChange)="filterDateChanged()"
       >
@@ -26,7 +27,7 @@
       <p class="row-item">{{date.date}}</p>
 
       <div class="row-item">
-        <div class="icon">
+        <div class="icon-box">
 
           <div *ngIf="date.headacheLevel === 0">🟢</div>
           <div *ngIf="date.headacheLevel === 1">🟡</div>
@@ -36,9 +37,10 @@
         </div>
       </div>
 
-      <app-button class="row-item icon glass" [routerLink]="'/eintrag/' + date.stringDate">
+      <app-button class="row-item icon-box glass" [routerLink]="'/eintrag/' + date.stringDate">
         🔍
         <span class="number-of-entries">{{date.entries.length}}</span>
+        <span class="tooltip-text">Einträge vom {{date.date}}</span>
       </app-button>
 
     </div>

@@ -10,112 +10,112 @@
 
     <div class="row">
 
-      <div class="icon">
-        <div *ngIf="!entry.headache">
+      <div class="icon-box">
+        <div *ngIf="!entry.headache" class="icon">
           🟢
           <span class="tooltip-text">keine</span>
         </div>
 
-        <div *ngIf="entry.headache && entry.intensity === 'strongIntensity'">
+        <div *ngIf="entry.headache && entry.intensity === 'strongIntensity'" class="icon">
             🔴
-            <span class="tooltip-text" [class.hidden]="deleteWarning">stark</span>
+            <span class="tooltip-text" [class.hidden]="deleteWarning">starke Schmerzen</span>
           </div>
 
-        <div *ngIf="entry.headache && entry.intensity === 'middleIntensity'">
+        <div *ngIf="entry.headache && entry.intensity === 'middleIntensity'" class="icon">
             🟠
-          <span class="tooltip-text" [class.hidden]="deleteWarning">mittel</span>
+          <span class="tooltip-text" [class.hidden]="deleteWarning">mittlere Schmerzen</span>
           </div>
 
-        <div *ngIf="entry.headache && entry.intensity === 'weakIntensity'">
+        <div *ngIf="entry.headache && entry.intensity === 'weakIntensity'" class="icon">
           🟡
-            <span class="tooltip-text" [class.hidden]="deleteWarning">schwach</span>
+            <span class="tooltip-text" [class.hidden]="deleteWarning">schwache Schmerzen</span>
           </div>
 
       </div>
 
-      <div class="icon">
-        <div *ngIf="entry.pill">
+      <div class="icon-box">
+        <div *ngIf="entry.pill" class="icon">
           💊
           <span class="tooltip-text" [class.hidden]="deleteWarning">Tablette genommen</span>
         </div>
       </div>
 
-      <div class="icon">
-        <div *ngIf="entry.water">
+      <div class="icon-box">
+        <div *ngIf="entry.water" class="icon">
           🥛
           <span class="tooltip-text" [class.hidden]="deleteWarning">Ausreichend getrunken</span>
         </div>
       </div>
 
-      <div class="icon">
+      <div class="icon-box">
 
-          <div *ngIf="entry.mood === 'relaxed'">
+          <div *ngIf="entry.mood === 'relaxed'" class="icon">
             😌
           <span class="tooltip-text" [class.hidden]="deleteWarning">Entspannt</span>
           </div>
 
-        <div *ngIf="entry.mood === 'stressed'">
+        <div *ngIf="entry.mood === 'stressed'" class="icon">
             😫
             <span class="tooltip-text" [class.hidden]="deleteWarning">Gestresst</span>
           </div>
 
-        <div *ngIf="entry.mood === 'tired'">
+        <div *ngIf="entry.mood === 'tired'" class="icon">
             🥱
             <span class="tooltip-text" [class.hidden]="deleteWarning">Müde</span>
           </div>
 
-        <div *ngIf="entry.mood === 'fresh'">
+        <div *ngIf="entry.mood === 'fresh'" class="icon">
             🤗️
             <span class="tooltip-text" [class.hidden]="deleteWarning">Wach</span>
           </div>
 
-        <div *ngIf="entry.mood === 'well'">
+        <div *ngIf="entry.mood === 'well'" class="icon">
             🙂
             <span class="tooltip-text" [class.hidden]="deleteWarning">Gut</span>
           </div>
 
-        <div *ngIf="entry.mood === 'bad'">
+        <div *ngIf="entry.mood === 'bad'" class="icon">
             ☹️
             <span class="tooltip-text" [class.hidden]="deleteWarning">Schlecht</span>
           </div>
 
       </div>
 
-      <div class="icon">
+      <div class="icon-box">
 
-        <div *ngIf="entry.weather === 'sunny'">
+        <div *ngIf="entry.weather === 'sunny'" class="icon">
           🌤️
           <span class="tooltip-text" [class.hidden]="deleteWarning">Sonne</span>
         </div>
 
-        <div *ngIf="entry.weather === 'cloudy'">
+        <div *ngIf="entry.weather === 'cloudy'" class="icon">
           ☁️
           <span class="tooltip-text" [class.hidden]="deleteWarning">Wolken</span>
         </div>
 
-        <div *ngIf="entry.weather === 'thunderstorm'">
+        <div *ngIf="entry.weather === 'thunderstorm'" class="icon">
           🌩️
           <span class="tooltip-text" [class.hidden]="deleteWarning">Gewitter</span>
         </div>
 
-        <div *ngIf="entry.weather === 'stormy'">
+        <div *ngIf="entry.weather === 'stormy'" class="icon">
           🍃
           <span class="tooltip-text" [class.hidden]="deleteWarning">Wind / Sturm</span>
         </div>
 
-        <div *ngIf="entry.weather === 'rainfall'">
+        <div *ngIf="entry.weather === 'rainfall'" class="icon">
           🌧️
           <span class="tooltip-text" [class.hidden]="deleteWarning">Regen / Schnee</span>
         </div>
 
-        <div *ngIf="entry.weather === 'foggy'">
+        <div *ngIf="entry.weather === 'foggy'" class="icon">
           🌫️
           <span class="tooltip-text" [class.hidden]="deleteWarning">Nebel</span>
         </div>
       </div>
 
-      <div class="icon">
-        <div *ngIf="entry.illness">
+      <div class="icon-box">
+        <div *ngIf="entry.illness" class="icon">
           🤒
           <span class="tooltip-text" [class.hidden]="deleteWarning">Krankheit</span>
         </div>
@@ -126,26 +126,26 @@
     <div class="deleteWarning" *ngIf="entry.showDeleteWarning">
       <p>Möchtest du den Eintrag wirklich löschen?</p>
       <div>
-        <app-button (click)="deleteEntry(entry)">Ja</app-button>
-        <app-button (click)="cancelDeleteEntry(entry)">Nein</app-button>
+        <app-button (click)="cancelDeleteEntry(entry)">❌️</app-button>
+        <app-button (click)="deleteEntry(entry)">✅</app-button>
       </div>
     </div>
 
 
     <div class="button-box row">
 
-      <app-button class="icon"
+      <app-button class="icon-box"
+                  [class.hidden]="entry.showDeleteWarning"
+                  (click)="askForDeleteEntry(entry)">
+        🗑️
+        <span class="tooltip-text">Löschen</span>
+      </app-button>
+
+      <app-button class="icon-box"
            [class.hidden]="entry.showDeleteWarning"
            [routerLink]="'/eintrag/' + entry.date + '/' + entry.time + '/bearbeiten'">
         ✏️
         <span class="tooltip-text">Bearbeiten</span>
-      </app-button>
-
-      <app-button class="icon"
-           [class.hidden]="entry.showDeleteWarning"
-           (click)="askForDeleteEntry(entry)">
-        🗑️
-        <span class="tooltip-text">Löschen</span>
       </app-button>
 
     </div>

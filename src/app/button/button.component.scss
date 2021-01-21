@@ -10,8 +10,8 @@ button {
   border: none;
   outline: none;
   user-select: none;
-  font-size: 20px;
-  text-shadow: 0 0 1px #565656;
+  color: main-styles.$gray-dark;
+  font-size: 16px;
   box-shadow: 0 0 3px #565656;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 8px;

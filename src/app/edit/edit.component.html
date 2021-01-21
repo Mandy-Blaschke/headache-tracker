@@ -1,21 +1,32 @@
 <main>
 
-  <h2>
-    Eintrag vom {{entryToEditDateView}}
-    <br>
-    um {{entryToEditTime}} Uhr
-  </h2>
+  <div class="edit-head">
+
+    <h2>
+      Eintrag vom {{entryToEditDateView}}
+      <br>
+      um {{entryToEditTime}} Uhr
+    </h2>
+    <h2 class="icon">
+      ✏️
+    </h2>
+
+  </div>
 
 
   <div class="form" *ngIf="entryToEdit != null">
 
-    <label>
+    <p>
       Datum:
+    </p>
+    <label>
       <input type="date" [(ngModel)]="entryToEdit.date">
     </label>
 
-    <label>
+    <p>
       Uhrzeit:
+    </p>
+    <label>
       <input type="time" [(ngModel)]="entryToEdit.time">
     </label>
 
@@ -37,31 +48,41 @@
       </div>
     </div>
 
-    <label *ngIf="entryToEdit.headache">
-      Wie stark sind die Kopfschmerzen?
-      <select [(ngModel)]="entryToEdit.intensity">
-        <option value="">--Bitte wählen--</option>
-        <option value="strongIntensity">Stark</option>
-        <option value="middleIntensity">Mittel</option>
-        <option value="weakIntensity">Schwach</option>
-      </select>
-    </label>
+    <div class="details-box" [class.not-hidden]="entryToEdit.headache">
 
-    <div class="row" *ngIf="entryToEdit.headache">
-      <p>
-        Hast Du eine Tablette genommen?
-      </p>
-      <div class="container"
-           (click)="entryToEdit.pill = !entryToEdit.pill"
-           [class.true]="entryToEdit.pill"
-           [class.false]="!entryToEdit.pill"
-      >
-        <div class="circle"
-             [class.true]="entryToEdit.pill"
-             [class.false]="!entryToEdit.pill"
-        >
+      <div class="details">
+
+        <p>
+          Wie stark sind die Kopfschmerzen?
+        </p>
+        <label>
+          <select [(ngModel)]="entryToEdit.intensity">
+            <option value="">--Bitte wählen--</option>
+            <option value="strongIntensity">Stark</option>
+            <option value="middleIntensity">Mittel</option>
+            <option value="weakIntensity">Schwach</option>
+          </select>
+        </label>
+
+        <div class="row" *ngIf="entryToEdit.headache">
+          <p>
+            Hast Du eine Tablette genommen?
+          </p>
+          <div class="container"
+               (click)="entryToEdit.pill = !entryToEdit.pill"
+               [class.true]="entryToEdit.pill"
+               [class.false]="!entryToEdit.pill"
+          >
+            <div class="circle"
+                 [class.true]="entryToEdit.pill"
+                 [class.false]="!entryToEdit.pill"
+            >
+            </div>
+          </div>
         </div>
+
       </div>
+
     </div>
 
 
@@ -82,8 +103,10 @@
       </div>
     </div>
 
-    <label>
+    <p>
       Wie ist Deine Stimmung?
+    </p>
+    <label>
       <select [(ngModel)]="entryToEdit.mood">
         <option value="">--Bitte wählen--</option>
         <option value="well">Gut</option>
@@ -95,8 +118,10 @@
       </select>
     </label>
 
-    <label>
+    <p>
       Wie ist das Wetter?
+    </p>
+    <label>
       <select [(ngModel)]="entryToEdit.weather">
         <option value="">--Bitte wählen--</option>
         <option value="sunny">Sonnig</option>
@@ -126,9 +151,9 @@
     </div>
 
     <div class="button-box">
-      <app-button (click)="updateEntry()">✅</app-button>
-
       <app-button (click)="cancel()">❌️</app-button>
+
+      <app-button (click)="updateEntry()">✅</app-button>
     </div>
 
   </div>

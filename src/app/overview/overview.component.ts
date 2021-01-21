@@ -25,28 +25,30 @@ export class OverviewComponent implements OnInit {
 
   getDates(): void {
     this.dates = [];
-    for (let d = 0; d < this.filterDays; d++) {
-      const dateOffset = (24 * 60 * 60 * 1000) * d;
-      const date = new Date();
-      date.setTime(date.getTime() - dateOffset);
+    if (this.filterDays <= 730) {
+      for (let d = 0; d < this.filterDays; d++) {
+        const dateOffset = (24 * 60 * 60 * 1000) * d;
+        const date = new Date();
+        date.setTime(date.getTime() - dateOffset);
 
-      const stringDate = formatDateToString(date);
+        const stringDate = formatDateToString(date);
 
-      const formattedStringDate = formatDateStringForView(stringDate);
+        const formattedStringDate = formatDateStringForView(stringDate);
 
-      const entries: Entry[] = this.entries.filter((entry) => entry.date === stringDate);
+        const entries: Entry[] = this.entries.filter((entry) => entry.date === stringDate);
 
-      const anyEntryWithHeadache = entries.find((entry) => entry.headache === true);
+        const anyEntryWithHeadache = entries.find((entry) => entry.headache === true);
 
-      this.dates.push(
-        {
-          date: formattedStringDate,
-          stringDate,
-          entries,
-          hasHeadache: anyEntryWithHeadache !== undefined,
-          headacheLevel: this.getHeadAcheLevel(entries),
-        }
-      );
+        this.dates.push(
+          {
+            date: formattedStringDate,
+            stringDate,
+            entries,
+            hasHeadache: anyEntryWithHeadache !== undefined,
+            headacheLevel: this.getHeadAcheLevel(entries),
+          }
+        );
+      }
     }
   }
 
