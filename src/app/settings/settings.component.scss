@@ -1,0 +1,14 @@
+@use "src/app/main-styles";
+
+main {
+  margin: auto;
+
+  h2 {
+    text-align: center;
+  }
+
+  .box {
+    @include main-styles.box-background;
+    width: 250px;
+  }
+}

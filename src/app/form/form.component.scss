@@ -31,6 +31,14 @@
 
 .form {
   @include main-styles.form;
+
+  .button-box {
+    app-button {
+      span {
+        filter: sepia(1) hue-rotate(100deg);
+      }
+    }
+  }
 }
 
 

@@ -7,7 +7,28 @@
 body {
   box-sizing: border-box;
   margin: 0;
-  background-image: radial-gradient(circle at 13% 47%, rgba(149,199,199, 0.17) 0%, rgba(149,199,199, 0.17) 25%,transparent 25%, transparent 100%),radial-gradient(circle at 28% 63%, rgba(159,207,202, 0.13) 0%, rgba(159,207,202, 0.13) 16%,transparent 16%, transparent 100%),radial-gradient(circle at 81% 56%, rgba(41,219,192, 0.18) 0%, rgba(41,219,192, 0.18) 12%,transparent 12%, transparent 100%),radial-gradient(circle at 26% 48%, rgba(55,186,179, 0.23) 0%, rgba(55,186,179, 0.23) 6%,transparent 6%, transparent 100%),radial-gradient(circle at 97% 17%, rgba(66,192,162, 0.19) 0%, rgba(66,192,162, 0.19) 56%,transparent 56%, transparent 100%),radial-gradient(circle at 50% 100%, rgba(62,162,112, 0.15) 0%, rgba(62,162,112, 0.15) 36%,transparent 36%, transparent 100%),radial-gradient(circle at 55% 52%, rgba(111,188,160, 0.03) 0%, rgba(111,188,160, 0.03) 6%,transparent 6%, transparent 100%),linear-gradient(90deg, rgba(42,255,204, 0.12),rgba(42,255,204, 0.12));
+  /*
+  background-image:
+    radial-gradient(circle at 13% 47%, rgba(149, 199, 199, 0.17) 0%, rgba(149,199,199, 0.17) 25%,transparent 25%, transparent 100%),
+    radial-gradient(circle at 28% 63%, rgba(159,207,202, 0.13) 0%, rgba(159,207,202, 0.13) 16%,transparent 16%, transparent 100%),
+    radial-gradient(circle at 81% 56%, rgba(41,219,192, 0.18) 0%, rgba(41,219,192, 0.18) 12%,transparent 12%, transparent 100%),
+    radial-gradient(circle at 26% 48%, rgba(55,186,179, 0.23) 0%, rgba(55,186,179, 0.23) 6%,transparent 6%, transparent 100%),
+    radial-gradient(circle at 97% 17%, rgba(66,192,162, 0.19) 0%, rgba(66,192,162, 0.19) 56%,transparent 56%, transparent 100%),
+    radial-gradient(circle at 50% 100%, rgba(62,162,112, 0.15) 0%, rgba(62,162,112, 0.15) 36%,transparent 36%, transparent 100%),
+    radial-gradient(circle at 55% 52%, rgba(111,188,160, 0.03) 0%, rgba(111,188,160, 0.03) 6%,transparent 6%, transparent 100%),
+    linear-gradient(90deg, rgba(42,255,204, 0.12),rgba(42,255,204, 0.12));
+   */
+
+  background-image:
+    radial-gradient(circle at 13% 47%, rgb(186, 149, 199) 0%, rgb(192, 149, 199) 25%,transparent 25%, transparent 100%),
+    radial-gradient(circle at 28% 63%, rgb(197, 159, 207) 0%, rgb(197, 159, 207) 16%,transparent 16%, transparent 100%),
+    radial-gradient(circle at 81% 56%, rgb(180, 41, 219) 0%, rgb(180, 41, 219) 12%,transparent 12%, transparent 100%),
+    radial-gradient(circle at 26% 48%, rgb(162, 55, 186) 0%, rgb(166, 55, 186) 6%,transparent 6%, transparent 100%),
+    radial-gradient(circle at 97% 17%, rgb(154, 66, 192) 0%, rgb(173, 66, 192) 56%,transparent 56%, transparent 100%),
+    radial-gradient(circle at 50% 100%, rgb(140, 62, 162) 0%, rgb(135, 62, 162) 36%,transparent 36%, transparent 100%),
+    radial-gradient(circle at 55% 52%, rgb(171, 111, 188) 0%, rgb(171, 111, 188) 6%,transparent 6%, transparent 100%),
+    linear-gradient(90deg, rgb(191, 42, 255), rgb(198, 42, 255));
+
   background-size: cover;
   background-repeat: no-repeat;
   color: main-styles.$gray-dark;

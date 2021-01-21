@@ -14,6 +14,7 @@ import {ButtonComponent} from './button/button.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { environment } from '../environments/environment';
     EditComponent,
     LoginComponent,
     ButtonComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
