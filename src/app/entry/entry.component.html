@@ -1,9 +1,12 @@
 <main>
 
   <h2>Einträge vom: {{dateForView}}</h2>
+  
+  <br>
 
   <div *ngIf="entries.length === 0">
     <p>Für diesen Tag sind keine Einträge vorhanden.</p>
+    <h2>🤷</h2>
   </div>
 
   <div *ngIf="entries.length > 0">

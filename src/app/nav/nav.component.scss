@@ -5,9 +5,15 @@ main {
 
   .row {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
     padding: 15px;
     background-color: rgba(white, 0.5);
+
+    .nav-icon {
+      // visibility: hidden;
+      display: none;
+    }
 
     a {
       color: main-styles.$gray-dark;
@@ -19,11 +25,18 @@ main {
 
       &.active {
         color: main-styles.$cyan-light;
-        text-decoration: underline;
+
+        .nav-icon {
+          display: inline-block;
+
+          @media (max-width: 329px) {
+            font-size: 14px;
+          }
+        }
       }
 
       h3 {
-        margin: 0 15px;
+        margin: 0;
       }
     }
   }

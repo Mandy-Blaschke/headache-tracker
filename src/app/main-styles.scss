@@ -12,6 +12,18 @@ $cyan-dark: #127577;
   backdrop-filter: blur(15px);
 }
 
+@mixin warning {
+  border: 1px solid red;
+  box-shadow: 0 0 4px #ff3c3c;
+  animation: fade linear 2s infinite;
+}
+
+@keyframes fade {
+  50% {
+    box-shadow: 0 0 4px #ff3c3c;
+  }
+}
+
 @mixin form {
   @include box-background;
   min-width: fit-content;
@@ -26,9 +38,7 @@ $cyan-dark: #127577;
     }
 
     .intensityWarning {
-      border: 1px solid red;
-      box-shadow: 0 0 2px #ff3c3c;
-      animation: fade linear 2s infinite;
+      @include warning;
     }
 
     input, option, select {
@@ -136,3 +146,6 @@ $cyan-dark: #127577;
     justify-content: center;
   }
 }
+
+
+

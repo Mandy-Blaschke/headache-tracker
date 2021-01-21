@@ -10,13 +10,13 @@
 
     <p>Erlaubt sind nur Buchstaben und Zahlen.</p>
 
-    <input type="text" [(ngModel)]="pseudonym" placeholder="Dein Name" [class.alert-border]="noName || wrongName">
+    <input type="text" [(ngModel)]="pseudonym" placeholder="Dein Name" [class.warning]="noName || wrongName">
 
-    <div class="alert" *ngIf="noName">
+    <div class="warning" *ngIf="noName">
       Bitte gib einen Namen an!
     </div>
 
-    <div class="alert" *ngIf="wrongName">
+    <div class="warning" *ngIf="wrongName">
       Keine Sonder- oder Leerzeichen!
     </div>
 

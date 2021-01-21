@@ -14,6 +14,7 @@
              max="730"
              [(ngModel)]="filterDays"
              (ngModelChange)="filterDateChanged()"
+             [class.warning]="!(this.filterDays > 0 && this.filterDays < 1000)"
       >
     </span>
       <h2> &nbsp;Tage</h2>
@@ -22,7 +23,12 @@
   </div>
 
 
-  <div class="box">
+  <p *ngIf="!(this.filterDays > 0 && this.filterDays < 1000)">
+    Bitte gib eine Anzahl zwischen 1 und 999 an.
+  </p>
+
+
+  <div class="box" *ngIf="(this.filterDays > 0 && this.filterDays < 1000)">
 
     <button (click)="toggleAscending()" class="sort-button">
       ⇳
@@ -36,10 +42,22 @@
       <div class="row-item">
         <div class="icon-box">
 
-          <div *ngIf="date.headacheLevel === 0">🟢</div>
-          <div *ngIf="date.headacheLevel === 1">🟡</div>
-          <div *ngIf="date.headacheLevel === 2">🟠</div>
-          <div *ngIf="date.headacheLevel === 3">🔴</div>
+          <div *ngIf="date.headacheLevel === 0">
+            🟢
+            <span class="tooltip-text">Keine Kopfschmerzen</span>
+          </div>
+          <div *ngIf="date.headacheLevel === 1">
+            🟡
+            <span class="tooltip-text">Schwache Kopfschmerzen</span>
+          </div>
+          <div *ngIf="date.headacheLevel === 2">
+            🟠
+            <span class="tooltip-text">Mittlere Kopfschmerzen</span>
+          </div>
+          <div *ngIf="date.headacheLevel === 3">
+            🔴
+            <span class="tooltip-text">Starke Kopfschmerzen</span>
+          </div>
 
         </div>
       </div>
@@ -47,7 +65,6 @@
       <app-button class="row-item icon-box glass" [routerLink]="'/eintrag/' + date.stringDate">
         🔍
         <span class="number-of-entries">{{date.entries.length}}</span>
-        <span class="tooltip-text">Einträge vom {{date.date}}</span>
       </app-button>
 
     </div>

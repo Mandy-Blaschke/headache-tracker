@@ -22,6 +22,10 @@ export class EntryComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    await this.loadAndSort();
+  }
+
+  async loadAndSort(): Promise<void> {
     this.allEntries = await this.service.loadAllEntries();
     this.activeDate = this.activatedRoute.snapshot.paramMap.get('datum');
     this.findActiveDate();
@@ -39,7 +43,7 @@ export class EntryComponent implements OnInit {
 
   async deleteEntry(entry: Entry): Promise<void> {
     await this.service.deleteEntry(entry);
-    await this.router.navigate(['/uebersicht']);
+    await this.loadAndSort();
   }
 
   async cancelDeleteEntry(entry: Entry): Promise<void> {

@@ -28,7 +28,7 @@ main {
       margin-top: 0
     }
 
-    .alert {
+    .warning {
       color: red;
       font-style: italic;
       font-size: 0.8rem;
@@ -42,10 +42,8 @@ main {
       padding: 6px;
       text-align: center;
 
-      &.alert-border {
-        border: 1px solid red;
-        box-shadow: 0 0 2px #ff3c3c;
-        animation: fade linear 2s infinite;
+      &.warning {
+        @include main-styles.warning;
       }
 
       &:hover {
@@ -55,9 +53,3 @@ main {
   }
 }
 
-
-@keyframes fade {
-  50% {
-    box-shadow: 0 0 4px #ff3c3c;
-  }
-}
