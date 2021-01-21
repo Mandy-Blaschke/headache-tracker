@@ -1,6 +1,11 @@
 @use "src/app/main-styles";
 
 main {
+  margin: auto;
+
+  h2, p {
+    text-align: center;
+  }
 
   .entry {
     @include main-styles.box-background;
@@ -63,6 +68,7 @@ main {
 
         .icon {
           padding: 10px;
+          font-size: 20px;
         }
 
         .tooltip-text {
@@ -97,6 +103,7 @@ main {
       justify-content: center;
 
       .icon-box {
+        font-size: 20px;
 
         .tooltip-text {
           width: 72px;

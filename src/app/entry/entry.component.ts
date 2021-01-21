@@ -26,6 +26,7 @@ export class EntryComponent implements OnInit {
     this.activeDate = this.activatedRoute.snapshot.paramMap.get('datum');
     this.findActiveDate();
     this.dateForView = formatDateStringForView(this.activeDate);
+    this.sortEntriesByTime();
   }
 
   findActiveDate(): void {
@@ -36,14 +37,32 @@ export class EntryComponent implements OnInit {
     entry.showDeleteWarning = true;
   }
 
-  async deleteEntry(entry: Entry): Promise<void>{
+  async deleteEntry(entry: Entry): Promise<void> {
     await this.service.deleteEntry(entry);
     await this.router.navigate(['/uebersicht']);
-
   }
 
   async cancelDeleteEntry(entry: Entry): Promise<void> {
     await this.router.navigate(['/eintrag/' + entry.date]);
     entry.showDeleteWarning = false;
+  }
+
+  sortEntriesByTime(): void {
+    let entryH = '';
+    let entryM = '';
+    for (const entry of this.entries) {
+      const entryTime = entry.time.split(':');
+      entryH = entryTime[0];
+      entryM = entryTime[1];
+    }
+    this.entries.sort((p, c) => {
+      const pArray = p.time.split(':');
+      const pFloat = parseFloat(pArray[0].concat('.', pArray[1]));
+
+      const cArray = c.time.split(':');
+      const cFloat = parseFloat(cArray[0].concat('.', cArray[1]));
+
+      return pFloat < cFloat ? 1 : -1;
+    });
   }
 }
