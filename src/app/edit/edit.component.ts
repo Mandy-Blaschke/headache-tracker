@@ -48,7 +48,6 @@ export class EditComponent implements OnInit {
         illness: this.entryToEdit.illness,
         id: this.entryToEdit.id,
         showDeleteWarning: this.entryToEdit.showDeleteWarning,
-        colorScheme: this.service.colorScheme,
       };
       await this.service.editEntry(editedEntry);
       await this.router.navigate(['/eintrag/' + this.entryToEditDate]);

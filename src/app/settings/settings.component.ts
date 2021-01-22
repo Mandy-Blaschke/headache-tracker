@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MainService} from '../main.service';
 import {ColorScheme} from '../interfaces';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -8,48 +9,50 @@ import {ColorScheme} from '../interfaces';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  visibleColors = false;
-  visibleLogin = false;
-  visibleDays = false;
-  visibleDelete = false;
+  colorBox = false;
+  loginBox = false;
+  dayBox = false;
+  deleteBox = false;
 
-  activeColorScheme = this.service.colorScheme;
+  activeColorScheme: ColorScheme;
+  overviewDays = 7;
 
   colors: ColorScheme[] = [
-    {
-      name: 'Cyan',
-      color: 'cyan',
-    },
-    {
-      color: 'violet',
-      name: 'Violett'
-    },
-    {
-      color: 'red',
-      name: 'Rot'
-    },
-    {
-      color: 'orange',
-      name: 'Orange'
-    },
-    {
-      color: 'green',
-      name: 'Grün'
-    },
-    {
-      color: 'blue',
-      name: 'Blau'
-    }
+    {name: 'Cyan', color: 'cyan'},
+    {color: 'violet', name: 'Violett'},
+    {color: 'red', name: 'Rot'},
+    {color: 'orange', name: 'Orange'},
+    {color: 'green', name: 'Grün'},
+    {color: 'blue', name: 'Blau'}
   ];
 
-  constructor(public service: MainService) {
+  constructor(public service: MainService, private router: Router) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
   }
 
   async setColorScheme(color: ColorScheme): Promise<void> {
     this.activeColorScheme = color;
     this.service.colorScheme = this.activeColorScheme;
+    await this.service.saveColorScheme(color);
+  }
+
+  async saveDaysOverview(numb: number): Promise<void> {
+    numb = this.overviewDays;
+    await this.service.saveDaysInOverview(numb);
+  }
+
+  async deleteAllData(): Promise<void> {
+    await this.service.deleteAllData();
+    await this.router.navigate(['/']);
+  }
+
+  cancelDeleting(): void {
+    this.deleteBox = false;
+  }
+
+  deletePseudonym(): void {
+    this.service.deletePseudonymFromLocalStorage();
   }
 }

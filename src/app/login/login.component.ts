@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.service.pseudonym = await localStorage.getItem('pseudonym') != null ? localStorage.getItem('pseudonym') : '';
+    if (this.pseudonym !== '') {
+      await this.service.loadColorScheme();
+    }
   }
 
   async login(): Promise<void> {
@@ -27,6 +30,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('pseudonym', this.pseudonym);
         await this.router.navigate(['neuer-eintrag']);
         this.service.pseudonym = this.pseudonym;
+        await this.service.loadColorScheme();
 
       } else {
         this.wrongName = true;

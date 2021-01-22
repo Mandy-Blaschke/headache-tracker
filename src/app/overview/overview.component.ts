@@ -13,7 +13,7 @@ export class OverviewComponent implements OnInit {
   dates: Day[] = [];
   entries: Entry[] = [];
 
-  filterDays = 7;
+  filterDays = this.service.daysForOverview > 0 ? this.service.daysForOverview : 7;
 
   ascending = false;
   ascendingButtonText = 'aufsteigend';

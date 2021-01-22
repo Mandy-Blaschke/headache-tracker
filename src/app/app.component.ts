@@ -11,8 +11,7 @@ export class AppComponent implements OnInit{
   constructor(public service: MainService) {
   }
 
-  ngOnInit(): void {
-    this.service.colorScheme = { color: 'cyan', name: 'Cyan'};
+  async ngOnInit(): Promise<void> {
   }
 
 }

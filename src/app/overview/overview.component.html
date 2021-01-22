@@ -14,7 +14,7 @@
              max="730"
              [(ngModel)]="filterDays"
              (ngModelChange)="filterDateChanged()"
-             [class.warning]="!(this.filterDays > 0 && this.filterDays < 730)"
+             [class.warning]="!(this.filterDays > 0 && this.filterDays <= 730)"
       >
     </span>
       <h2> &nbsp;Tage</h2>
@@ -23,12 +23,12 @@
   </div>
 
 
-  <p *ngIf="!(this.filterDays > 0 && this.filterDays < 730)">
+  <p *ngIf="!(this.filterDays > 0 && this.filterDays <= 730)">
     Bitte gib eine Anzahl zwischen 1 und 730 an.
   </p>
 
 
-  <div class="box" *ngIf="(this.filterDays > 0 && this.filterDays < 730)">
+  <div class="box" *ngIf="(this.filterDays > 0 && this.filterDays <= 730)">
 
     <button (click)="toggleAscending()" class="sort-button">
       ⇳

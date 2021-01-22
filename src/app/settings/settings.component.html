@@ -3,45 +3,65 @@
 
   <h2>Einstellungen</h2>
 
-
-  <app-button (click)="visibleColors = !visibleColors">
-    Farbschema ändern: 🎨
+  <app-button (click)="colorBox = !colorBox; dayBox = false; deleteBox = false; loginBox = false">
+    Farbschema ändern
+    <span style="margin-left: 8px">🎨</span>
   </app-button>
 
-  <div class="box" [class.visible]="visibleColors">
+  <div class="box" [class.visible]="colorBox">
     <div class="options" *ngFor="let color of colors" (click)="setColorScheme(color)">
       <h4>{{color.name}}</h4>
       <h4 *ngIf="service.colorScheme === color">✔️</h4>
     </div>
   </div>
 
-
-  <app-button (click)="visibleDays = !visibleDays">
-    Anzahl Tage ändern: 📅️
+  <app-button (click)="dayBox = !dayBox; colorBox = false; deleteBox = false; loginBox = false">
+    <div class="days">
+      Anzahl Tage in der <br>
+      Übersicht ändern
+      <span>📅️</span>
+    </div>
   </app-button>
 
-  <div class="box" [class.visible]="visibleDays">
-    <div class="options">
-      <div>Tage in der Übersicht:
-        <input type="number" min="1" max="720">
+  <div class="box" [class.visible]="dayBox">
+    <div class="options day-select">
+
+      <div>
+        <p>
+          Tage, in der Übersicht
+          <br>
+          angezeigt werden sollen
+        </p>
+
+        <label>
+          <select [(ngModel)]="overviewDays" (click)="saveDaysOverview(overviewDays)">
+            <option value="7">Eine Woche</option>
+            <option value="14">Zwei Wochen</option>
+            <option value="21">Drei Wochen</option>
+            <option value="31">Ein Monat</option>
+            <option value="62">Zwei Monate</option>
+            <option value="365">Ein Jahr</option>
+            <option value="730">Zwei Jahre</option>
+          </select>
+        </label>
       </div>
     </div>
   </div>
 
-  <app-button (click)="visibleLogin = !visibleLogin">
-    Autom. Anmeldung:
-    <span style="margin-left: 13px">🔓</span>
+  <app-button (click)="loginBox = !loginBox; dayBox = false; deleteBox = false; colorBox = false">
+    Autom. Anmeldung
+    <span style="margin-left: 19px">🔓</span>
   </app-button>
 
-  <div class="box" [class.visible]="visibleLogin">
+  <div class="box" [class.visible]="loginBox">
     <div class="options">
 
       <div class="column">
         <p>Automatische Anmeldung löschen</p>
 
         <div class="buttons">
-          <app-button>🗑️</app-button>
-          <app-button>✔️</app-button>
+          <app-button (click)="cancelDeleting()">❌️</app-button>
+          <app-button (click)="deletePseudonym()">🗑️</app-button>
         </div>
 
       </div>
@@ -49,24 +69,23 @@
 
   </div>
 
-  <app-button (click)="visibleDelete = !visibleDelete">
-    Daten löschen:
-    <span style="margin-left: 50px">🚮</span>
+  <app-button (click)="deleteBox = !deleteBox; dayBox = false; loginBox = false; colorBox = false">
+    Daten löschen
+    <span style="margin-left: 57px">🚮</span>
   </app-button>
 
-  <div class="box" [class.visible]="visibleDelete">
+  <div class="box" [class.visible]="deleteBox">
     <div class="options">
-      <p>Alle Einträge löschen</p>
+      <div class="column">
+        <p>Alle Daten löschen</p>
+
+        <div class="buttons">
+          <app-button (click)="cancelDeleting()">❌️</app-button>
+          <app-button (click)="deleteAllData()">🗑️</app-button>
+        </div>
+
+      </div>
     </div>
   </div>
-
-  <!-- TODO Einstellung
-
-   - Daten löschen
-   - feste Anzahl an Tagen zeigen
-   - dunkles Design?
-
-
-   -->
 
 </main>

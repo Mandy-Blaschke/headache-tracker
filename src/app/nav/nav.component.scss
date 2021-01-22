@@ -5,10 +5,14 @@ main {
 
   .row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 15px;
     background-color: rgba(white, 0.5);
+
+    @media (max-width: 480px){
+      justify-content: space-between;
+    }
 
     .nav-icon {
       display: none;
@@ -17,6 +21,11 @@ main {
     a {
       color: main-styles.$gray-dark;
       text-decoration: none;
+      margin: 0 25px;
+
+      @media (max-width: 480px){
+        margin: 0;
+      }
 
       &:hover {
         cursor: pointer;

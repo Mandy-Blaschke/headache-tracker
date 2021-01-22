@@ -10,7 +10,6 @@ export interface Entry {
   weather: string;
   illness: boolean;
   showDeleteWarning: boolean;
-  colorScheme: ColorScheme;
 }
 
 
@@ -25,4 +24,5 @@ export interface Day {
 export interface ColorScheme {
   name: string;
   color: string;
+  id?: string;
 }

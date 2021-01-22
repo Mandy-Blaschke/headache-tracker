@@ -9,10 +9,8 @@ import {HttpClient} from '@angular/common/http';
 export class MainService {
 
   pseudonym = '';
-  colorScheme: ColorScheme = {
-    name: 'Cyan',
-    color: 'cyan'
-  };
+  daysForOverview: number;
+  colorScheme: ColorScheme = {name: 'Cyan', color: 'cyan'};
 
   constructor(private http: HttpClient) {
   }
@@ -40,4 +38,49 @@ export class MainService {
       return [];
     }
   }
+
+  async deleteAllData(): Promise<void> {
+    for (const entry of await this.loadAllEntries()) {
+      await this.http.delete('https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-' + this.pseudonym + '/' + entry.id).toPromise();
+    }
+
+    const url = 'https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-color-' + this.pseudonym + '/';
+    const items = await this.http.get<ColorScheme[]>(url).toPromise();
+    for (const item of items) {
+      await this.http.delete(url + '/' + item.id).toPromise();
+    }
+
+    this.deletePseudonymFromLocalStorage();
+    this.pseudonym = '';
+
+    this.colorScheme = {color: 'cyan', name: 'Cyan'};
+  }
+
+  async saveDaysInOverview(numb: number): Promise<void> {
+    this.daysForOverview = numb;
+    // TODO
+  }
+
+  async saveColorScheme(color: ColorScheme): Promise<void> {
+    const url = 'https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-color-' + this.pseudonym + '/';
+    const items = await this.http.get<ColorScheme[]>(url).toPromise();
+    for (const item of items) {
+      await this.http.delete(url + '/' + item.id).toPromise();
+    }
+    await this.http.post(url, color).toPromise();
+  }
+
+  async loadColorScheme(): Promise<void> {
+    const url = 'https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-color-' + this.pseudonym + '/';
+    const items = await this.http.get<ColorScheme[]>(url).toPromise();
+    if (items.length > 0) {
+      this.colorScheme = items[0];
+    }
+  }
+
+  deletePseudonymFromLocalStorage(): void {
+    localStorage.removeItem('pseudonym');
+  }
+
+
 }

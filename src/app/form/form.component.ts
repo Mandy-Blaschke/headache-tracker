@@ -44,7 +44,6 @@ export class FormComponent implements OnInit {
         weather: this.weather,
         illness: this.illness,
         showDeleteWarning: false,
-        colorScheme: this.service.colorScheme,
       };
       await this.service.save(entry);
       await this.router.navigate(['/uebersicht']);
