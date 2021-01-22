@@ -1,39 +1,64 @@
+<!--suppress HtmlFormInputWithoutLabel -->
 <main>
 
   <h2>Einstellungen</h2>
 
-  <div class="box">
 
-    <h4>
-      Farbschema ändern:
-    </h4>
+  <app-button (click)="visibleColors = !visibleColors">
+    Farbschema ändern: 🎨
+  </app-button>
 
-  </div>
-
-  <div class="box">
-
-    <h4>
-      Standardanzahl der Tage
-      in der Übersicht:
-    </h4>
-
-  </div>
-
-  <div class="box">
-
-    <h4>
-      Automatische Anmeldung löschen:
-    </h4>
-
-  </div>
-
-  <div class="box">
-
-    <h4>
-      Alle Daten löschen:
-    </h4>
-
+  <div class="box" [class.visible]="visibleColors">
+    <div class="options" *ngFor="let color of colors" (click)="setColorScheme(color)">
+      <h4>{{color.name}}</h4>
+      <h4 *ngIf="service.colorScheme === color">✔️</h4>
     </div>
+  </div>
+
+
+  <app-button (click)="visibleDays = !visibleDays">
+    Anzahl Tage ändern: 📅️
+  </app-button>
+
+  <div class="box" [class.visible]="visibleDays">
+    <div class="options">
+      <div>Tage in der Übersicht:
+        <input type="number" min="1" max="720">
+      </div>
+    </div>
+  </div>
+
+  <app-button (click)="visibleLogin = !visibleLogin">
+    Autom. Anmeldung:
+    <span style="margin-left: 13px">🔓</span>
+  </app-button>
+
+  <div class="box" [class.visible]="visibleLogin">
+    <div class="options">
+
+      <div class="column">
+        <p>Automatische Anmeldung löschen</p>
+
+        <div class="buttons">
+          <app-button>🗑️</app-button>
+          <app-button>✔️</app-button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <app-button (click)="visibleDelete = !visibleDelete">
+    Daten löschen:
+    <span style="margin-left: 50px">🚮</span>
+  </app-button>
+
+  <div class="box" [class.visible]="visibleDelete">
+    <div class="options">
+      <p>Alle Einträge löschen</p>
+    </div>
+  </div>
 
   <!-- TODO Einstellung
 

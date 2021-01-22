@@ -3,4 +3,70 @@ main {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+
+  &.cyan {
+    background-image: radial-gradient(circle at 13% 47%, rgba(149, 199, 199, 0.17) 0%, rgba(149, 199, 199, 0.17) 25%, transparent 25%, transparent 100%),
+    radial-gradient(circle at 28% 63%, rgba(159, 207, 202, 0.13) 0%, rgba(159, 207, 202, 0.13) 16%, transparent 16%, transparent 100%),
+    radial-gradient(circle at 81% 56%, rgba(41, 219, 192, 0.18) 0%, rgba(41, 219, 192, 0.18) 12%, transparent 12%, transparent 100%),
+    radial-gradient(circle at 26% 48%, rgba(55, 186, 179, 0.23) 0%, rgba(55, 186, 179, 0.23) 6%, transparent 6%, transparent 100%),
+    radial-gradient(circle at 97% 17%, rgba(66, 192, 162, 0.19) 0%, rgba(66, 192, 162, 0.19) 56%, transparent 56%, transparent 100%),
+    radial-gradient(circle at 50% 100%, rgba(62, 162, 112, 0.15) 0%, rgba(62, 162, 112, 0.15) 36%, transparent 36%, transparent 100%),
+    radial-gradient(circle at 55% 52%, rgba(111, 188, 160, 0.03) 0%, rgba(111, 188, 160, 0.03) 6%, transparent 6%, transparent 100%),
+    linear-gradient(90deg, rgba(42, 255, 204, 0.12), rgba(42, 255, 204, 0.12));
+  }
+
+  &.violet {
+    background-image: radial-gradient(circle at 13% 47%, #ba95c7 0%, #d48be075 25%, transparent 25%, transparent 100%),
+    radial-gradient(circle at 28% 63%, #c59fcf 0%, #77328947 16%, transparent 16%, transparent 100%),
+    radial-gradient(circle at 81% 56%, #ae49ca0a 0%, #8547977d 12%, transparent 12%, transparent 100%),
+    radial-gradient(circle at 26% 48%, #822a96 0%, #a637baa1 6%, transparent 6%, transparent 100%),
+    radial-gradient(circle at 97% 17%, #9c68b27d 0%, #bc4ecf45 56%, transparent 56%, transparent 100%),
+    radial-gradient(circle at 50% 100%, #a17dacbd 0%, #73378980 36%, transparent 36%, transparent 100%),
+    radial-gradient(circle at 55% 52%, #ab6fbc 0%, #ab6fbc52 6%, transparent 6%, #0000002e 100%),
+    linear-gradient(90deg, #bf2aff, #bc68da73);
+  }
+
+  &.red {
+    background-image: radial-gradient(circle at 13% 47%, #c79595 0%, #e08b8b75 25%, transparent 25%, transparent 100%),
+    radial-gradient(circle at 28% 63%, #cf9f9f 0%, #89323247 16%, transparent 16%, transparent 100%),
+    radial-gradient(circle at 81% 56%, #ca49490a 0%, #9747477d 12%, transparent 12%, transparent 100%),
+    radial-gradient(circle at 26% 48%, #962a2a 0%, #ba3737a1 6%, transparent 6%, transparent 100%),
+    radial-gradient(circle at 97% 17%, #b268687d 0%, #cf4e4e45 56%, transparent 56%, transparent 100%),
+    radial-gradient(circle at 50% 100%, #ac7d7dbd 0%, #89373780 36%, transparent 36%, transparent 100%),
+    radial-gradient(circle at 55% 52%, #bc6f6f 0%, #bc6f6f52 6%, transparent 6%, #0000002e 100%),
+    linear-gradient(90deg, #ff2a2a, #da686873);
+  }
+
+  &.orange {
+    background-image: radial-gradient(circle at 13% 47%, #FF9800 0%, #e0ba8b75 25%, transparent 25%, transparent 100%),
+    radial-gradient(circle at 28% 63%, #cfb39f 0%, #895b3296 16%, transparent 16%, transparent 100%),
+    radial-gradient(circle at 81% 56%, #ca89490a 0%, #976c477d 12%, transparent 12%, transparent 100%),
+    radial-gradient(circle at 26% 48%, #96522a 0%, #ba6737a1 6%, transparent 6%, transparent 100%),
+    radial-gradient(circle at 97% 17%, #b28e687d 0%, #cf864e45 56%, transparent 56%, transparent 100%),
+    radial-gradient(circle at 50% 100%, #a9712869 0%, #89373780 36%, transparent 36%, transparent 100%),
+    radial-gradient(circle at 55% 52%, #bc846f 0%, #bc936f52 6%, transparent 6%, #0000002e 100%),
+    linear-gradient(90deg, #ffa02aad, #da926873);
+  }
+
+  &.green {
+    background-image: radial-gradient(circle at 13% 47%, #9fc795 0%, #8be08e75 25%, transparent 25%, transparent 100%),
+    radial-gradient(circle at 28% 63%, #a4cf9f 0%, #37893247 16%, transparent 16%, transparent 100%),
+    radial-gradient(circle at 81% 56%, #49ca510a 0%, #4c97477d 12%, transparent 12%, transparent 100%),
+    radial-gradient(circle at 26% 48%, #31962a 0%, #37ba41a1 6%, transparent 6%, transparent 100%),
+    radial-gradient(circle at 97% 17%, #68b26e7d 0%, #4ecf5445 56%, transparent 56%, transparent 100%),
+    radial-gradient(circle at 50% 100%, #7dac7fbd 0%, #39893780 36%, transparent 36%, transparent 100%),
+    radial-gradient(circle at 55% 52%, #70bc6f 0%, #ab6fbc52 6%, transparent 6%, #0000002e 100%),
+    linear-gradient(90deg, #5bb23e8c, #ade590e0);
+  }
+
+  &.blue {
+    background-image: radial-gradient(circle at 13% 47%, #9599c7 0%, #988be075 25%, transparent 25%, transparent 100%),
+    radial-gradient(circle at 28% 63%, #a09fcf 0%, #34328947 16%, transparent 16%, transparent 100%),
+    radial-gradient(circle at 81% 56%, #ae49ca0a 0%, #5447977d 12%, transparent 12%, transparent 100%),
+    radial-gradient(circle at 26% 48%, #3b2a96 0%, #3f37baa1 6%, transparent 6%, transparent 100%),
+    radial-gradient(circle at 97% 17%, #6d68b27d 0%, #4e50cf45 56%, transparent 56%, transparent 100%),
+    radial-gradient(circle at 50% 100%, #7d80acbd 0%, #37428980 36%, transparent 36%, transparent 100%),
+    radial-gradient(circle at 55% 52%, #6f7cbc 0%, #6f71bc52 6%, transparent 6%, #0000002e 100%),
+    linear-gradient(90deg, #2a3aff, #6871da73);
+  }
 }

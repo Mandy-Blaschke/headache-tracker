@@ -1,13 +1,35 @@
 $gray-dark: #3e3e3e;
 $gray-light: #989898;
+
 $cyan: #119b9f;
 $cyan-light: #15ba99;
 $cyan-dark: #127577;
 
+$violet: #43119f;
+$violet-light: #6215ba;
+$violet-dark: #3c1277;
+
+$red: #9f1111;
+$red-light: #ba1515;
+$red-dark: #771212;
+
+$orange: #9f3e11;
+$orange-light: #ba4915;
+$orange-dark: #773212;
+
+$green: #227c0e;
+$green-light: #20ba15;
+$green-dark: #1f530d;
+
+$blue: #11309f;
+$blue-light: #1539ba;
+$blue-dark: #101f67;
+
+
 @mixin box-background {
   margin: 15px;
   padding: 15px;
-  background-color: rgba(white, 0.4);
+  background-color: rgba(white, 0.5);
   border-radius: 8px;
   backdrop-filter: blur(15px);
 }
@@ -110,8 +132,28 @@ $cyan-dark: #127577;
         background-color: rgba($gray-light, 0.3);
       }
 
-      &.true {
+      &.true-cyan {
         background-color: rgba($cyan-light, 0.3);
+      }
+
+      &.true-violet {
+        background-color: rgba($violet-light, 0.3);
+      }
+
+      &.true-red {
+        background-color: rgba($red-light, 0.3);
+      }
+
+      &.true-orange {
+        background-color: rgba($orange-light, 0.3);
+      }
+
+      &.true-green {
+        background-color: rgba($green-light, 0.3);
+      }
+
+      &.true-blue {
+        background-color: rgba($blue-light, 0.3);
       }
 
       &:hover {
@@ -123,7 +165,6 @@ $cyan-dark: #127577;
         width: 22px;
         height: 22px;
         border-radius: 50%;
-        background-color: $cyan-dark;
         transition: transform ease-in-out 500ms;
 
         &.false {
@@ -135,6 +176,30 @@ $cyan-dark: #127577;
         &.true {
           top: 0;
           transform: translateX(18px);
+
+          &.true-cyan {
+            background-color: rgba($cyan-light, 0.3);
+          }
+
+          &.true-violet {
+            background-color: rgba($violet-light, 0.3);
+          }
+
+          &.true-red {
+            background-color: rgba($red-light, 0.3);
+          }
+
+          &.true-orange {
+            background-color: rgba($orange-light, 0.3);
+          }
+
+          &.true-green {
+            background-color: rgba($green-light, 0.3);
+          }
+
+          &.true-blue {
+            background-color: rgba($blue-light, 0.3);
+          }
         }
       }
     }

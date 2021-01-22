@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MainService} from './main.service';
 
 @Component({
@@ -6,9 +6,13 @@ import {MainService} from './main.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   constructor(public service: MainService) {
+  }
+
+  ngOnInit(): void {
+    this.service.colorScheme = { color: 'cyan', name: 'Cyan'};
   }
 
 }

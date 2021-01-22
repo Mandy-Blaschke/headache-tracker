@@ -23,7 +23,25 @@ main {
       }
 
       &.active {
-        color: main-styles.$cyan-light;
+
+        .cyan {
+          color: main-styles.$cyan-light;
+        }
+        .violet {
+          color: main-styles.$violet-light;
+        }
+        .red {
+          color: main-styles.$red-light;
+        }
+        .orange {
+          color: main-styles.$orange-light;
+        }
+        .green {
+          color: main-styles.$green-light;
+        }
+        .blue {
+          color: main-styles.$blue-light;
+        }
 
         .nav-icon {
           display: inline-block;

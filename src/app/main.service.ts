@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Entry} from './interfaces';
+import {ColorScheme, Entry} from './interfaces';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
@@ -9,6 +9,10 @@ import {HttpClient} from '@angular/common/http';
 export class MainService {
 
   pseudonym = '';
+  colorScheme: ColorScheme = {
+    name: 'Cyan',
+    color: 'cyan'
+  };
 
   constructor(private http: HttpClient) {
   }

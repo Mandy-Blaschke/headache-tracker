@@ -25,10 +25,33 @@ main {
       justify-content: center;
       font-weight: bolder;
       color: white;
-      background-color: rgba(main-styles.$cyan-dark, 0.9);
       backdrop-filter: blur(7px);
       border-radius: 8px;
       z-index: 3;
+
+      &.cyan {
+        background-color: rgba(main-styles.$cyan-dark, 0.9);
+      }
+
+      &.violet {
+        background-color: rgba(main-styles.$violet-dark, 0.9);
+      }
+
+      &.red {
+        background-color: rgba(main-styles.$red-dark, 0.9);
+      }
+
+      &.orange {
+        background-color: rgba(main-styles.$orange-dark, 0.9);
+      }
+
+      &.green {
+        background-color: rgba(main-styles.$green-dark, 0.9);
+      }
+
+      &.blue {
+        background-color: rgba(main-styles.$blue-dark, 0.9);
+      }
 
       p {
         text-align: center;

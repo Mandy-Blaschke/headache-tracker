@@ -9,6 +9,39 @@ main {
 
   .box {
     @include main-styles.box-background;
-    width: 250px;
+    box-sizing: border-box;
+    width: 260px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    max-height: 0;
+    transition: max-height 300ms ease-in-out, padding 300ms ease-in-out;
+    overflow: hidden;
+    padding: 0;
+
+    .options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      h4 {
+        justify-self: flex-end;
+      }
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .buttons {
+          display: flex;
+        }
+      }
+    }
+
+    &.visible {
+      max-height: 400px;
+      padding: 15px;
+    }
   }
 }

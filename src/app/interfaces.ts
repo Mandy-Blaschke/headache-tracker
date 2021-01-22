@@ -10,6 +10,7 @@ export interface Entry {
   weather: string;
   illness: boolean;
   showDeleteWarning: boolean;
+  colorScheme: ColorScheme;
 }
 
 
@@ -19,4 +20,9 @@ export interface Day {
   entries: Entry[];
   hasHeadache: boolean;
   headacheLevel: number;
+}
+
+export interface ColorScheme {
+  name: string;
+  color: string;
 }

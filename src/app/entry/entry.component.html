@@ -1,7 +1,7 @@
 <main>
 
   <h2>Einträge vom: {{dateForView}}</h2>
-  
+
   <br>
 
   <div *ngIf="entries.length === 0">
@@ -156,7 +156,15 @@
 
       </div>
 
-      <div class="deleteWarning" *ngIf="entry.showDeleteWarning">
+      <div *ngIf="entry.showDeleteWarning"
+           class="deleteWarning"
+           [class.cyan]="service.colorScheme.color === 'cyan'"
+           [class.violet]="service.colorScheme.color === 'violet'"
+           [class.red]="service.colorScheme.color === 'red'"
+           [class.orange]="service.colorScheme.color === 'orange'"
+           [class.green]="service.colorScheme.color === 'green'"
+           [class.blue]="service.colorScheme.color === 'blue'"
+      >
         <p>Möchtest du den Eintrag wirklich löschen?</p>
         <div>
           <app-button (click)="cancelDeleteEntry(entry)">❌️</app-button>

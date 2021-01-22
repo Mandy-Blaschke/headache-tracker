@@ -3,18 +3,36 @@
   <div class="row" *ngIf="service.pseudonym !== ''">
 
     <a routerLink="/neuer-eintrag" [routerLinkActive]="'active'">
-      <h3>
+      <div
+        [class.cyan]="service.colorScheme.color === 'cyan'"
+        [class.violet]="service.colorScheme.color === 'violet'"
+        [class.red]="service.colorScheme.color === 'red'"
+        [class.orange]="service.colorScheme.color === 'orange'"
+        [class.green]="service.colorScheme.color === 'green'"
+        [class.blue]="service.colorScheme.color === 'blue'"
+      >
+        <h3>
         <span class="nav-icon">👉</span>
         Neuer Eintrag
         <span class="nav-icon">👈</span>
       </h3>
+      </div>
     </a>
 
     <a routerLink="/uebersicht" [routerLinkActive]="'active'">
+      <div
+        [class.cyan]="service.colorScheme.color === 'cyan'"
+        [class.violet]="service.colorScheme.color === 'violet'"
+        [class.red]="service.colorScheme.color === 'red'"
+        [class.orange]="service.colorScheme.color === 'orange'"
+        [class.green]="service.colorScheme.color === 'green'"
+        [class.blue]="service.colorScheme.color === 'blue'"
+      >
       <h3>
         <span class="nav-icon">👉</span>
         Übersicht
         <span class="nav-icon">👈</span></h3>
+      </div>
     </a>
 
     <a routerLink="/einstellungen" [routerLinkActive]="'active'">
