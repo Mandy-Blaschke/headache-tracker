@@ -21,8 +21,13 @@ export interface Day {
   headacheLevel: number;
 }
 
+export interface UserSettings {
+  daysInOverview: number;
+  color: string;
+  id?: string;
+}
+
 export interface ColorScheme {
   name: string;
   color: string;
-  id?: string;
 }

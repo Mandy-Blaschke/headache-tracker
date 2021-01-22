@@ -14,7 +14,6 @@ export class SettingsComponent implements OnInit {
   dayBox = false;
   deleteBox = false;
 
-  activeColorScheme: ColorScheme;
   overviewDays = 7;
 
   colors: ColorScheme[] = [
@@ -33,14 +32,8 @@ export class SettingsComponent implements OnInit {
   }
 
   async setColorScheme(color: ColorScheme): Promise<void> {
-    this.activeColorScheme = color;
-    this.service.colorScheme = this.activeColorScheme;
-    await this.service.saveColorScheme(color);
-  }
-
-  async saveDaysOverview(numb: number): Promise<void> {
-    numb = this.overviewDays;
-    await this.service.saveDaysInOverview(numb);
+    this.service.userSettings.color = color.color;
+    await this.service.saveUserSettings();
   }
 
   async deleteAllData(): Promise<void> {
@@ -54,5 +47,11 @@ export class SettingsComponent implements OnInit {
 
   deletePseudonym(): void {
     this.service.deletePseudonymFromLocalStorage();
+  }
+
+  async saveDaysToSettings(): Promise<void> {
+    this.service.userSettings.daysInOverview = this.overviewDays;
+    console.log('test');
+    await this.service.saveUserSettings();
   }
 }

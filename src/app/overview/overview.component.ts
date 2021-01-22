@@ -23,6 +23,7 @@ export class OverviewComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.entries = await this.service.loadAllEntries();
+    this.filterDays = this.service.userSettings.daysInOverview;
     this.getDates();
   }
 

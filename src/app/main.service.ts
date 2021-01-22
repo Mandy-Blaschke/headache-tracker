@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ColorScheme, Entry} from './interfaces';
+import {UserSettings, Entry} from './interfaces';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
@@ -10,7 +10,7 @@ export class MainService {
 
   pseudonym = '';
   daysForOverview: number;
-  colorScheme: ColorScheme = {name: 'Cyan', color: 'cyan'};
+  userSettings: UserSettings = {color: 'cyan', daysInOverview: 7};
 
   constructor(private http: HttpClient) {
   }
@@ -45,7 +45,7 @@ export class MainService {
     }
 
     const url = 'https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-color-' + this.pseudonym + '/';
-    const items = await this.http.get<ColorScheme[]>(url).toPromise();
+    const items = await this.http.get<UserSettings[]>(url).toPromise();
     for (const item of items) {
       await this.http.delete(url + '/' + item.id).toPromise();
     }
@@ -53,28 +53,23 @@ export class MainService {
     this.deletePseudonymFromLocalStorage();
     this.pseudonym = '';
 
-    this.colorScheme = {color: 'cyan', name: 'Cyan'};
+    this.userSettings = {color: 'cyan', daysInOverview: 7};
   }
 
-  async saveDaysInOverview(numb: number): Promise<void> {
-    this.daysForOverview = numb;
-    // TODO
-  }
-
-  async saveColorScheme(color: ColorScheme): Promise<void> {
-    const url = 'https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-color-' + this.pseudonym + '/';
-    const items = await this.http.get<ColorScheme[]>(url).toPromise();
+  async saveUserSettings(): Promise<void> {
+    const url = 'https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-usersettings-' + this.pseudonym + '/';
+    const items = await this.http.get<UserSettings[]>(url).toPromise();
     for (const item of items) {
       await this.http.delete(url + '/' + item.id).toPromise();
     }
-    await this.http.post(url, color).toPromise();
+    await this.http.post(url, this.userSettings).toPromise();
   }
 
-  async loadColorScheme(): Promise<void> {
-    const url = 'https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-color-' + this.pseudonym + '/';
-    const items = await this.http.get<ColorScheme[]>(url).toPromise();
+  async loadUserSettings(): Promise<void> {
+    const url = 'https://api.mandy-blaschke.de/storage/kopfschmerztagebuch-usersettings-' + this.pseudonym + '/';
+    const items = await this.http.get<UserSettings[]>(url).toPromise();
     if (items.length > 0) {
-      this.colorScheme = items[0];
+      this.userSettings = items[0];
     }
   }
 
