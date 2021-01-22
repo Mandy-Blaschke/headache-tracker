@@ -14,7 +14,7 @@ export class SettingsComponent implements OnInit {
   dayBox = false;
   deleteBox = false;
 
-  overviewDays = 7;
+  overviewDays = null;
 
   colors: ColorScheme[] = [
     {name: 'Cyan', color: 'cyan'},
@@ -51,8 +51,9 @@ export class SettingsComponent implements OnInit {
   }
 
   async saveDaysToSettings(): Promise<void> {
-    this.service.userSettings.daysInOverview = this.overviewDays;
-    console.log('test');
-    await this.service.saveUserSettings();
+    if (this.overviewDays !== null) {
+      this.service.userSettings.daysInOverview = this.overviewDays;
+      await this.service.saveUserSettings();
+    }
   }
 }
