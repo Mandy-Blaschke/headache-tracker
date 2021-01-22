@@ -3,7 +3,12 @@
 main {
   margin: auto;
 
-  h2, p {
+  .head {
+    @include main-styles.head;
+  }
+
+  .no-entries {
+    @include main-styles.box-background;
     text-align: center;
   }
 

@@ -1,45 +1,41 @@
-<div class="greeting">
-  <h2 class="text">
-    Hallo {{service.pseudonym}},
-    <br>
-    wie fühlst Du Dich?
-  </h2>
-  <h1 class="emoji"><span class="hand">✋</span>🙂</h1>
-</div>
+<main>
 
-<div class="form">
+  <div class="head">
 
-  <p>
-    Datum:
-  </p>
-  <label>
-    <input type="date" [(ngModel)]="date">
-  </label>
+    <div class="greeting">
+      <h2 class="text">
+        Hallo {{service.pseudonym}},
+        <br>
+        wie fühlst Du Dich?
+      </h2>
+      <h1 class="emoji"><span class="hand">✋</span>🙂</h1>
+    </div>
 
-  <p>
-    Uhrzeit:
-  </p>
-  <label>
-    <input type="time" [(ngModel)]="time">
-  </label>
+  </div>
 
-  <div class="row">
+  <div class="form">
+
     <p>
-      Hast Du Kopfschmerzen?
+      Datum:
     </p>
+    <label>
+      <input type="date" [(ngModel)]="date">
+    </label>
 
-    <div class="container"
-         (click)="headache = !headache"
-         [class.true]="headache"
-         [class.true-cyan]="headache && service.userSettings.color === 'cyan'"
-         [class.true-violet]="headache && service.userSettings.color === 'violet'"
-         [class.true-red]="headache && service.userSettings.color === 'red'"
-         [class.true-orange]="headache && service.userSettings.color === 'orange'"
-         [class.true-green]="headache && service.userSettings.color === 'green'"
-         [class.true-blue]="headache && service.userSettings.color === 'blue'"
-         [class.false]="!headache"
-    >
-      <div class="circle"
+    <p>
+      Uhrzeit:
+    </p>
+    <label>
+      <input type="time" [(ngModel)]="time">
+    </label>
+
+    <div class="row">
+      <p>
+        Hast Du Kopfschmerzen?
+      </p>
+
+      <div class="container"
+           (click)="headache = !headache"
            [class.true]="headache"
            [class.true-cyan]="headache && service.userSettings.color === 'cyan'"
            [class.true-violet]="headache && service.userSettings.color === 'violet'"
@@ -49,42 +45,42 @@
            [class.true-blue]="headache && service.userSettings.color === 'blue'"
            [class.false]="!headache"
       >
+        <div class="circle"
+             [class.true]="headache"
+             [class.true-cyan]="headache && service.userSettings.color === 'cyan'"
+             [class.true-violet]="headache && service.userSettings.color === 'violet'"
+             [class.true-red]="headache && service.userSettings.color === 'red'"
+             [class.true-orange]="headache && service.userSettings.color === 'orange'"
+             [class.true-green]="headache && service.userSettings.color === 'green'"
+             [class.true-blue]="headache && service.userSettings.color === 'blue'"
+             [class.false]="!headache"
+        >
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="details-box" [class.not-hidden]="headache">
+    <div class="details-box" [class.not-hidden]="headache">
 
-    <div class="details">
+      <div class="details">
 
-      <p>
-        Wie stark sind die Kopfschmerzen?
-      </p>
-      <label>
-        <select [(ngModel)]="intensity" [class.intensityWarning]="intensityWarning">
-          <option value="">--Bitte wählen--</option>
-          <option value="strongIntensity">Stark</option>
-          <option value="middleIntensity">Mittel</option>
-          <option value="weakIntensity">Schwach</option>
-        </select>
-      </label>
-
-      <div class="row took-pill">
         <p>
-          Hast Du eine Tablette genommen?
+          Wie stark sind die Kopfschmerzen?
         </p>
-        <div class="container"
-             (click)="pill = !pill"
-             [class.true]="pill"
-             [class.true-cyan]="pill && service.userSettings.color === 'cyan'"
-             [class.true-violet]="pill && service.userSettings.color === 'violet'"
-             [class.true-red]="pill && service.userSettings.color === 'red'"
-             [class.true-orange]="pill && service.userSettings.color === 'orange'"
-             [class.true-green]="pill && service.userSettings.color === 'green'"
-             [class.true-blue]="pill && service.userSettings.color === 'blue'"
-             [class.false]="!pill"
-        >
-          <div class="circle"
+        <label>
+          <select [(ngModel)]="intensity" [class.intensityWarning]="intensityWarning">
+            <option value="">--Bitte wählen--</option>
+            <option value="strongIntensity">Stark</option>
+            <option value="middleIntensity">Mittel</option>
+            <option value="weakIntensity">Schwach</option>
+          </select>
+        </label>
+
+        <div class="row took-pill">
+          <p>
+            Hast Du eine Tablette genommen?
+          </p>
+          <div class="container"
+               (click)="pill = !pill"
                [class.true]="pill"
                [class.true-cyan]="pill && service.userSettings.color === 'cyan'"
                [class.true-violet]="pill && service.userSettings.color === 'violet'"
@@ -94,31 +90,31 @@
                [class.true-blue]="pill && service.userSettings.color === 'blue'"
                [class.false]="!pill"
           >
+            <div class="circle"
+                 [class.true]="pill"
+                 [class.true-cyan]="pill && service.userSettings.color === 'cyan'"
+                 [class.true-violet]="pill && service.userSettings.color === 'violet'"
+                 [class.true-red]="pill && service.userSettings.color === 'red'"
+                 [class.true-orange]="pill && service.userSettings.color === 'orange'"
+                 [class.true-green]="pill && service.userSettings.color === 'green'"
+                 [class.true-blue]="pill && service.userSettings.color === 'blue'"
+                 [class.false]="!pill"
+            >
+            </div>
           </div>
         </div>
+
       </div>
 
     </div>
 
-  </div>
 
-
-  <div class="row">
-    <p>
-      Hast Du ausreichend getrunken?
-    </p>
-    <div class="container"
-         (click)="water = !water"
-         [class.true]="water"
-         [class.true-cyan]="water && service.userSettings.color === 'cyan'"
-         [class.true-violet]="water && service.userSettings.color === 'violet'"
-         [class.true-red]="water && service.userSettings.color === 'red'"
-         [class.true-orange]="water && service.userSettings.color === 'orange'"
-         [class.true-green]="water && service.userSettings.color === 'green'"
-         [class.true-blue]="water && service.userSettings.color === 'blue'"
-         [class.false]="!water"
-    >
-      <div class="circle"
+    <div class="row">
+      <p>
+        Hast Du ausreichend getrunken?
+      </p>
+      <div class="container"
+           (click)="water = !water"
            [class.true]="water"
            [class.true-cyan]="water && service.userSettings.color === 'cyan'"
            [class.true-violet]="water && service.userSettings.color === 'violet'"
@@ -128,56 +124,56 @@
            [class.true-blue]="water && service.userSettings.color === 'blue'"
            [class.false]="!water"
       >
+        <div class="circle"
+             [class.true]="water"
+             [class.true-cyan]="water && service.userSettings.color === 'cyan'"
+             [class.true-violet]="water && service.userSettings.color === 'violet'"
+             [class.true-red]="water && service.userSettings.color === 'red'"
+             [class.true-orange]="water && service.userSettings.color === 'orange'"
+             [class.true-green]="water && service.userSettings.color === 'green'"
+             [class.true-blue]="water && service.userSettings.color === 'blue'"
+             [class.false]="!water"
+        >
+        </div>
       </div>
     </div>
-  </div>
 
-  <p>
-    Wie ist Deine Stimmung?
-  </p>
-  <label>
-    <select [(ngModel)]="mood">
-      <option value="">--Bitte wählen--</option>
-      <option value="well">Gut</option>
-      <option value="bad">Schlecht</option>
-      <option value="stressed">Gestresst</option>
-      <option value="relaxed">Entspannt</option>
-      <option value="tired">Müde</option>
-      <option value="fresh">Munter</option>
-    </select>
-  </label>
-
-  <p>
-    Wie ist das Wetter?
-  </p>
-  <label>
-    <select [(ngModel)]="weather">
-      <option value="">--Bitte wählen--</option>
-      <option value="sunny">Sonnig</option>
-      <option value="cloudy">Bewölkt</option>
-      <option value="rainfall">Regen / Schnee</option>
-      <option value="thunderstorm">Gewitter</option>
-      <option value="stormy">Stürmisch</option>
-      <option value="foggy">Neblig</option>
-    </select>
-  </label>
-
-  <div class="row">
     <p>
-      Bist Du krank?
+      Wie ist Deine Stimmung?
     </p>
-    <div class="container"
-         (click)="illness = !illness"
-         [class.true]="illness"
-         [class.true-cyan]="illness && service.userSettings.color === 'cyan'"
-         [class.true-violet]="illness && service.userSettings.color === 'violet'"
-         [class.true-red]="illness && service.userSettings.color === 'red'"
-         [class.true-orange]="illness && service.userSettings.color === 'orange'"
-         [class.true-green]="illness && service.userSettings.color === 'green'"
-         [class.true-blue]="illness && service.userSettings.color === 'blue'"
-         [class.false]="!illness"
-    >
-      <div class="circle"
+    <label>
+      <select [(ngModel)]="mood">
+        <option value="">--Bitte wählen--</option>
+        <option value="well">Gut</option>
+        <option value="bad">Schlecht</option>
+        <option value="stressed">Gestresst</option>
+        <option value="relaxed">Entspannt</option>
+        <option value="tired">Müde</option>
+        <option value="fresh">Munter</option>
+      </select>
+    </label>
+
+    <p>
+      Wie ist das Wetter?
+    </p>
+    <label>
+      <select [(ngModel)]="weather">
+        <option value="">--Bitte wählen--</option>
+        <option value="sunny">Sonnig</option>
+        <option value="cloudy">Bewölkt</option>
+        <option value="rainfall">Regen / Schnee</option>
+        <option value="thunderstorm">Gewitter</option>
+        <option value="stormy">Stürmisch</option>
+        <option value="foggy">Neblig</option>
+      </select>
+    </label>
+
+    <div class="row">
+      <p>
+        Bist Du krank?
+      </p>
+      <div class="container"
+           (click)="illness = !illness"
            [class.true]="illness"
            [class.true-cyan]="illness && service.userSettings.color === 'cyan'"
            [class.true-violet]="illness && service.userSettings.color === 'violet'"
@@ -187,15 +183,26 @@
            [class.true-blue]="illness && service.userSettings.color === 'blue'"
            [class.false]="!illness"
       >
+        <div class="circle"
+             [class.true]="illness"
+             [class.true-cyan]="illness && service.userSettings.color === 'cyan'"
+             [class.true-violet]="illness && service.userSettings.color === 'violet'"
+             [class.true-red]="illness && service.userSettings.color === 'red'"
+             [class.true-orange]="illness && service.userSettings.color === 'orange'"
+             [class.true-green]="illness && service.userSettings.color === 'green'"
+             [class.true-blue]="illness && service.userSettings.color === 'blue'"
+             [class.false]="!illness"
+        >
+        </div>
       </div>
     </div>
+
+    <div class="button-box">
+      <app-button (click)="saveEntry()">
+        <span>➕</span>
+      </app-button>
+    </div>
+
   </div>
 
-  <div class="button-box">
-    <app-button (click)="saveEntry()">
-      <span>➕</span>
-    </app-button>
-  </div>
-
-</div>
-
+</main>

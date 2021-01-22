@@ -2,13 +2,14 @@
 
 <main>
 
-  <div class="filter">
+  <div class="head">
+    <div class="filter">
 
-    <h2>Deine Einträge der</h2>
-    <div class="days">
-      <h2>
-        letzten &nbsp;</h2>
-      <span>
+      <h2>Deine Einträge der</h2>
+      <div class="days">
+        <h2>
+          letzten &nbsp;</h2>
+        <span>
       <input type="number"
              min="1"
              max="730"
@@ -17,9 +18,10 @@
              [class.warning]="!(this.filterDays > 0 && this.filterDays <= 730)"
       >
     </span>
-      <h2> &nbsp;Tage</h2>
-    </div>
+        <h2> &nbsp;Tage</h2>
+      </div>
 
+    </div>
   </div>
 
 

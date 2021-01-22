@@ -2,8 +2,12 @@
 
 main {
 
-  h2 {
-    text-align: center;
+  .head {
+    @include main-styles.head;
+
+    h2 {
+      text-align: center;
+    }
   }
 
   .form {

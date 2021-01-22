@@ -1,11 +1,13 @@
 <main>
 
-  <h2>
-    Eintrag vom {{entryToEditDateView}}
-    <br>
-    um {{entryToEditTime}} Uhr
-    ✏️
-  </h2>
+ <div class="head">
+   <h2>
+     Eintrag vom {{entryToEditDateView}}
+     <br>
+     um {{entryToEditTime}} Uhr
+     ✏️
+   </h2>
+ </div>
 
   <div class="form" *ngIf="entryToEdit != null">
 
@@ -31,22 +33,22 @@
       <div class="container"
            (click)="entryToEdit.headache = !entryToEdit.headache"
            [class.true]="entryToEdit.headache"
-           [class.true-cyan]="entryToEdit.headache && service.colorScheme.color === 'cyan'"
-           [class.true-violet]="entryToEdit.headache && service.colorScheme.color === 'violet'"
-           [class.true-red]="entryToEdit.headache && service.colorScheme.color === 'red'"
-           [class.true-orange]="entryToEdit.headache && service.colorScheme.color === 'orange'"
-           [class.true-green]="entryToEdit.headache && service.colorScheme.color === 'green'"
-           [class.true-blue]="entryToEdit.headache && service.colorScheme.color === 'blue'"
+           [class.true-cyan]="entryToEdit.headache && service.userSettings.color === 'cyan'"
+           [class.true-violet]="entryToEdit.headache && service.userSettings.color === 'violet'"
+           [class.true-red]="entryToEdit.headache && service.userSettings.color === 'red'"
+           [class.true-orange]="entryToEdit.headache && service.userSettings.color === 'orange'"
+           [class.true-green]="entryToEdit.headache && service.userSettings.color === 'green'"
+           [class.true-blue]="entryToEdit.headache && service.userSettings.color === 'blue'"
            [class.false]="!entryToEdit.headache"
       >
         <div class="circle"
              [class.true]="entryToEdit.headache"
-             [class.true-cyan]="entryToEdit.headache && service.colorScheme.color === 'cyan'"
-             [class.true-violet]="entryToEdit.headache && service.colorScheme.color === 'violet'"
-             [class.true-red]="entryToEdit.headache && service.colorScheme.color === 'red'"
-             [class.true-orange]="entryToEdit.headache && service.colorScheme.color === 'orange'"
-             [class.true-green]="entryToEdit.headache && service.colorScheme.color === 'green'"
-             [class.true-blue]="entryToEdit.headache && service.colorScheme.color === 'blue'"
+             [class.true-cyan]="entryToEdit.headache && service.userSettings.color === 'cyan'"
+             [class.true-violet]="entryToEdit.headache && service.userSettings.color === 'violet'"
+             [class.true-red]="entryToEdit.headache && service.userSettings.color === 'red'"
+             [class.true-orange]="entryToEdit.headache && service.userSettings.color === 'orange'"
+             [class.true-green]="entryToEdit.headache && service.userSettings.color === 'green'"
+             [class.true-blue]="entryToEdit.headache && service.userSettings.color === 'blue'"
              [class.false]="!entryToEdit.headache"
         >
         </div>
@@ -76,22 +78,22 @@
           <div class="container"
                (click)="entryToEdit.pill = !entryToEdit.pill"
                [class.true]="entryToEdit.pill"
-               [class.true-cyan]="entryToEdit.pill && service.colorScheme.color === 'cyan'"
-               [class.true-violet]="entryToEdit.pill && service.colorScheme.color === 'violet'"
-               [class.true-red]="entryToEdit.pill && service.colorScheme.color === 'red'"
-               [class.true-orange]="entryToEdit.pill && service.colorScheme.color === 'orange'"
-               [class.true-green]="entryToEdit.pill && service.colorScheme.color === 'green'"
-               [class.true-blue]="entryToEdit.pill && service.colorScheme.color === 'blue'"
+               [class.true-cyan]="entryToEdit.pill && service.userSettings.color === 'cyan'"
+               [class.true-violet]="entryToEdit.pill && service.userSettings.color === 'violet'"
+               [class.true-red]="entryToEdit.pill && service.userSettings.color === 'red'"
+               [class.true-orange]="entryToEdit.pill && service.userSettings.color === 'orange'"
+               [class.true-green]="entryToEdit.pill && service.userSettings.color === 'green'"
+               [class.true-blue]="entryToEdit.pill && service.userSettings.color === 'blue'"
                [class.false]="!entryToEdit.pill"
           >
             <div class="circle"
                  [class.true]="entryToEdit.pill"
-                 [class.true-cyan]="entryToEdit.pill && service.colorScheme.color === 'cyan'"
-                 [class.true-violet]="entryToEdit.pill && service.colorScheme.color === 'violet'"
-                 [class.true-red]="entryToEdit.pill && service.colorScheme.color === 'red'"
-                 [class.true-orange]="entryToEdit.pill && service.colorScheme.color === 'orange'"
-                 [class.true-green]="entryToEdit.pill && service.colorScheme.color === 'green'"
-                 [class.true-blue]="entryToEdit.pill && service.colorScheme.color === 'blue'"
+                 [class.true-cyan]="entryToEdit.pill && service.userSettings.color === 'cyan'"
+                 [class.true-violet]="entryToEdit.pill && service.userSettings.color === 'violet'"
+                 [class.true-red]="entryToEdit.pill && service.userSettings.color === 'red'"
+                 [class.true-orange]="entryToEdit.pill && service.userSettings.color === 'orange'"
+                 [class.true-green]="entryToEdit.pill && service.userSettings.color === 'green'"
+                 [class.true-blue]="entryToEdit.pill && service.userSettings.color === 'blue'"
                  [class.false]="!entryToEdit.pill">
 
             </div>
@@ -111,22 +113,22 @@
       <div class="container"
            (click)="entryToEdit.water = !entryToEdit.water"
            [class.true]="entryToEdit.water"
-           [class.true-cyan]="entryToEdit.water && service.colorScheme.color === 'cyan'"
-           [class.true-violet]="entryToEdit.water && service.colorScheme.color === 'violet'"
-           [class.true-red]="entryToEdit.water && service.colorScheme.color === 'red'"
-           [class.true-orange]="entryToEdit.water && service.colorScheme.color === 'orange'"
-           [class.true-green]="entryToEdit.water && service.colorScheme.color === 'green'"
-           [class.true-blue]="entryToEdit.water && service.colorScheme.color === 'blue'"
+           [class.true-cyan]="entryToEdit.water && service.userSettings.color === 'cyan'"
+           [class.true-violet]="entryToEdit.water && service.userSettings.color === 'violet'"
+           [class.true-red]="entryToEdit.water && service.userSettings.color === 'red'"
+           [class.true-orange]="entryToEdit.water && service.userSettings.color === 'orange'"
+           [class.true-green]="entryToEdit.water && service.userSettings.color === 'green'"
+           [class.true-blue]="entryToEdit.water && service.userSettings.color === 'blue'"
            [class.false]="!entryToEdit.water"
       >
         <div class="circle"
              [class.true]="entryToEdit.water"
-             [class.true-cyan]="entryToEdit.water && service.colorScheme.color === 'cyan'"
-             [class.true-violet]="entryToEdit.water && service.colorScheme.color === 'violet'"
-             [class.true-red]="entryToEdit.water && service.colorScheme.color === 'red'"
-             [class.true-orange]="entryToEdit.water && service.colorScheme.color === 'orange'"
-             [class.true-green]="entryToEdit.water && service.colorScheme.color === 'green'"
-             [class.true-blue]="entryToEdit.water && service.colorScheme.color === 'blue'"
+             [class.true-cyan]="entryToEdit.water && service.userSettings.color === 'cyan'"
+             [class.true-violet]="entryToEdit.water && service.userSettings.color === 'violet'"
+             [class.true-red]="entryToEdit.water && service.userSettings.color === 'red'"
+             [class.true-orange]="entryToEdit.water && service.userSettings.color === 'orange'"
+             [class.true-green]="entryToEdit.water && service.userSettings.color === 'green'"
+             [class.true-blue]="entryToEdit.water && service.userSettings.color === 'blue'"
              [class.false]="!entryToEdit.water"
         >
         </div>
@@ -170,22 +172,22 @@
       <div class="container"
            (click)="entryToEdit.illness = !entryToEdit.illness"
            [class.true]="entryToEdit.illness"
-           [class.true-cyan]="entryToEdit.illness && service.colorScheme.color === 'cyan'"
-           [class.true-violet]="entryToEdit.illness && service.colorScheme.color === 'violet'"
-           [class.true-red]="entryToEdit.illness && service.colorScheme.color === 'red'"
-           [class.true-orange]="entryToEdit.illness && service.colorScheme.color === 'orange'"
-           [class.true-green]="entryToEdit.illness && service.colorScheme.color === 'green'"
-           [class.true-blue]="entryToEdit.illness && service.colorScheme.color === 'blue'"
+           [class.true-cyan]="entryToEdit.illness && service.userSettings.color === 'cyan'"
+           [class.true-violet]="entryToEdit.illness && service.userSettings.color === 'violet'"
+           [class.true-red]="entryToEdit.illness && service.userSettings.color === 'red'"
+           [class.true-orange]="entryToEdit.illness && service.userSettings.color === 'orange'"
+           [class.true-green]="entryToEdit.illness && service.userSettings.color === 'green'"
+           [class.true-blue]="entryToEdit.illness && service.userSettings.color === 'blue'"
            [class.false]="!entryToEdit.illness"
       >
         <div class="circle"
              [class.true]="entryToEdit.illness"
-             [class.true-cyan]="entryToEdit.illness && service.colorScheme.color === 'cyan'"
-             [class.true-violet]="entryToEdit.illness && service.colorScheme.color === 'violet'"
-             [class.true-red]="entryToEdit.illness && service.colorScheme.color === 'red'"
-             [class.true-orange]="entryToEdit.illness && service.colorScheme.color === 'orange'"
-             [class.true-green]="entryToEdit.illness && service.colorScheme.color === 'green'"
-             [class.true-blue]="entryToEdit.illness && service.colorScheme.color === 'blue'"
+             [class.true-cyan]="entryToEdit.illness && service.userSettings.color === 'cyan'"
+             [class.true-violet]="entryToEdit.illness && service.userSettings.color === 'violet'"
+             [class.true-red]="entryToEdit.illness && service.userSettings.color === 'red'"
+             [class.true-orange]="entryToEdit.illness && service.userSettings.color === 'orange'"
+             [class.true-green]="entryToEdit.illness && service.userSettings.color === 'green'"
+             [class.true-blue]="entryToEdit.illness && service.userSettings.color === 'blue'"
              [class.false]="!entryToEdit.illness"
         >
         </div>

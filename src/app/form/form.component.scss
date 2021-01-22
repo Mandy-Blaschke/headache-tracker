@@ -1,46 +1,52 @@
 @use "src/app/main-styles";
 
-.greeting {
-  display: flex;
-  justify-content: center;
-  margin: 15px 0;
+main {
 
-  @media (max-width: 435px) {
-    flex-direction: column-reverse;
-    align-items: center;
-  }
+  .head {
+    @include main-styles.head;
 
-  .text {
-    text-align: center;
-  }
+    .greeting {
+      display: flex;
+      justify-content: center;
 
-  .emoji {
-    display: flex;
-    align-items: center;
-    margin: 15px 0 15px 15px;
+      @media (max-width: 435px) {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
 
-    @media (max-width: 435px) {
-      margin: 15px 0 0 0;
-    }
+      .text {
+        text-align: center;
+      }
 
-    .hand {
-      animation: beckon linear infinite 420ms;
-    }
-  }
-}
+      .emoji {
+        display: flex;
+        align-items: center;
+        margin: 15px 0 15px 15px;
 
-.form {
-  @include main-styles.form;
+        @media (max-width: 435px) {
+          margin: 15px 0 0 0;
+        }
 
-  .button-box {
-    app-button {
-      span {
-        filter: sepia(1) hue-rotate(100deg);
+        .hand {
+          animation: beckon linear infinite 420ms;
+        }
       }
     }
   }
-}
 
+  .form {
+    @include main-styles.form;
+
+    .button-box {
+      app-button {
+        span {
+          filter: sepia(1) hue-rotate(100deg);
+        }
+      }
+    }
+  }
+
+}
 
 @keyframes beckon {
   25% {

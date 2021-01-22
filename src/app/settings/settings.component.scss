@@ -3,8 +3,13 @@
 main {
   margin: auto;
 
-  h2 {
-    text-align: center;
+  .head {
+    @include main-styles.head;
+    margin: 45px 0 -35px 0;
+
+    h2 {
+      text-align: center;
+    }
   }
 
   app-button {

@@ -11,7 +11,7 @@ main {
     background-color: rgba(white, 0.5);
 
     @media (max-width: 480px){
-      justify-content: space-between;
+      justify-content: space-evenly;
     }
 
     .nav-icon {

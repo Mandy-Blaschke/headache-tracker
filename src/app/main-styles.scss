@@ -25,6 +25,13 @@ $blue: #11309f;
 $blue-light: #1539ba;
 $blue-dark: #101f67;
 
+@mixin head {
+  box-sizing: border-box;
+  min-height: 110px;
+  text-align: center;
+  margin-top: 25px;
+}
+
 
 @mixin box-background {
   margin: 15px;
