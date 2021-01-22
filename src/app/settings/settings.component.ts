@@ -43,6 +43,7 @@ export class SettingsComponent implements OnInit {
 
   cancelDeleting(): void {
     this.deleteBox = false;
+    this.loginBox = false;
   }
 
   deletePseudonym(): void {
